@@ -296,11 +296,129 @@ footer span{color:#60a5fa;font-weight:600}
 .rfq-submit:hover{background:#2563eb;transform:translateY(-2px)}
 .rfq-success{display:none;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);border-radius:8px;padding:14px 18px;color:#86efac;font-size:13.5px;text-align:center;margin-top:8px}
 
+/* ══════════════════════════════════
+   RESPONSIVE — All Devices
+   ══════════════════════════════════ */
+
+/* Large tablets & small laptops (max 1024px) */
+@media(max-width:1024px){
+  .partners-grid{grid-template-columns:repeat(4,1fr)}
+  .hero h1{font-size:clamp(2rem,4.5vw,3.2rem)}
+  .about-grid{gap:2.5rem}
+  .calib-grid{gap:2.5rem}
+}
+
+/* Tablets (max 768px) */
 @media(max-width:768px){
-  .about-grid,.contact-grid,.calib-grid,.services-grid{grid-template-columns:1fr}
-  .values-grid,.team-grid{grid-template-columns:1fr}
+  /* Nav */
   .nav-links{display:none}
+  .nav-inner{height:72px}
+  .nav-logo img{height:54px}
+
+  /* Hero */
+  .hero{padding:100px 5% 60px}
+  .hero h1{font-size:clamp(1.8rem,6vw,2.8rem)}
+  .hero p{font-size:0.95rem}
+  .btn-primary,.btn-outline{padding:12px 24px;font-size:14px}
+  .hero-tags{gap:8px}
+
+  /* Layouts — stack to single column */
+  .about-grid,
+  .contact-grid,
+  .calib-grid,
+  .services-grid{grid-template-columns:1fr;gap:2rem}
+
+  /* About section photos — shorter on mobile */
+  .about-grid > div:first-child > div[style*="grid-template-columns"]{
+    height:200px !important
+  }
+
+  /* Values & team */
+  .values-grid,.team-grid{grid-template-columns:1fr 1fr}
+
+  /* RFQ form rows */
   .rfq-row{grid-template-columns:1fr}
+
+  /* Partners grid */
+  .partners-grid{grid-template-columns:repeat(3,1fr)}
+
+  /* Products grid */
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* Stats */
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+
+  /* Why grid */
+  .why-grid{grid-template-columns:1fr}
+
+  /* Section padding */
+  section{padding:3.5rem 5%}
+  .section-title{font-size:clamp(1.4rem,4vw,2rem)}
+}
+
+/* Mobile phones (max 480px) */
+@media(max-width:480px){
+  /* Nav */
+  .nav-inner{height:64px}
+  .nav-logo img{height:46px}
+  .nav-cta{padding:8px 14px;font-size:12px}
+
+  /* Hero */
+  .hero{padding:90px 5% 50px}
+  .hero h1{font-size:clamp(1.6rem,7vw,2.2rem)}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline{width:100%;max-width:280px;text-align:center}
+  .hero-badge{font-size:11px;padding:5px 14px}
+  .hero-tags{justify-content:center}
+  .hero-tag{font-size:11px;padding:5px 10px}
+
+  /* About photos — compact */
+  .about-grid > div:first-child > div[style*="grid-template-columns"]{
+    height:160px !important;
+    grid-template-columns:1fr 1fr !important
+  }
+  /* Hide third photo on very small screens */
+  .about-grid > div:first-child > div > div:nth-child(3){
+    display:none
+  }
+
+  /* Values & team — single column */
+  .values-grid,.team-grid{grid-template-columns:1fr}
+
+  /* Products — single column */
+  .products-grid{grid-template-columns:1fr}
+
+  /* Partners — 2 columns */
+  .partners-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* Stats — 2 columns */
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .stat-num{font-size:2rem}
+
+  /* Calib params wrap nicely */
+  .calib-params{gap:6px}
+  .calib-param{font-size:11.5px;padding:6px 12px}
+
+  /* Section */
+  section{padding:3rem 5%}
+  .section-title{font-size:clamp(1.3rem,5.5vw,1.8rem)}
+  .section-sub{font-size:0.9rem}
+
+  /* Ticker — tighter on small screens */
+  .ticker-item{padding:0 24px}
+  .ticker-item img{height:28px}
+
+  /* Contact section */
+  .contact{padding:3rem 5%}
+  .contact-grid{gap:2.5rem}
+}
+
+/* Very small phones (max 360px) */
+@media(max-width:360px){
+  .nav-cta{display:none}
+  .hero h1{font-size:1.5rem}
+  .partners-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-inner{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -309,16 +427,52 @@ footer span{color:#60a5fa;font-weight:600}
 <nav>
   <div class="nav-inner">
     <a href="#"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/Originallogo.png" alt="TYCUS Solutions" style="height:72px;width:auto;object-fit:contain;display:block"/></a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#about">About Us</a>
       <a href="#services">Our Services</a>
       <a href="#products">Products</a>
       <a href="#partners">Partners</a>
       <a href="#contact">Our Team</a>
     </div>
-    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us — RFQ</button>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us — RFQ</button>
+      <button id="hamburger" onclick="toggleMenu()" style="display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;align-items:center;justify-content:center">
+        <span style="display:block;width:22px;height:2px;background:#1e3a8a;border-radius:2px;transition:all 0.3s"></span>
+        <span style="display:block;width:22px;height:2px;background:#1e3a8a;border-radius:2px;transition:all 0.3s"></span>
+        <span style="display:block;width:22px;height:2px;background:#1e3a8a;border-radius:2px;transition:all 0.3s"></span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile dropdown menu -->
+  <div id="mobileMenu" style="display:none;background:#fff;border-top:1px solid #e2e8f0;padding:1rem 5%;flex-direction:column;gap:0">
+    <a href="#about" onclick="closeMenu()" style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;font-weight:500">About Us</a>
+    <a href="#services" onclick="closeMenu()" style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;font-weight:500">Our Services</a>
+    <a href="#products" onclick="closeMenu()" style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;font-weight:500">Products</a>
+    <a href="#partners" onclick="closeMenu()" style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;font-weight:500">Partners</a>
+    <a href="#contact" onclick="closeMenu()" style="padding:12px 0;font-size:14px;color:#475569;font-weight:500">Our Team</a>
   </div>
 </nav>
+
+<style>
+@media(max-width:768px){
+  #hamburger{display:flex !important}
+}
+</style>
+
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').style.display = 'none';
+}
+// Close menu on outside click
+document.addEventListener('click', function(e){
+  const nav = document.querySelector('nav');
+  if(!nav.contains(e.target)) closeMenu();
+});
+</script>
 
 <section class="hero">
   <div class="hero-bg"></div>
