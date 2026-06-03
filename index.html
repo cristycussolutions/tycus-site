@@ -3,7 +3,41 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>TYCUS Solutions</title>
+<title>TYCUS Solutions — Industrial Supplies, Calibration & Construction Philippines</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="TYCUS Solutions delivers high-quality industrial supplies, ISO/IEC 17025 accredited calibration services, solar energy solutions, and reliable construction services across the Philippines."/>
+<meta name="keywords" content="industrial supplies Philippines, calibration services Philippines, ISO 17025 calibration, solar energy Philippines, construction Batangas, process instruments, Siemens distributor Philippines, ABB Philippines, Schneider Electric Philippines, TYCUS Solutions"/>
+<meta name="author" content="TYCUS Solutions — TYCUS Enterprises Corporation"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.tycussolutions.com/"/>
+
+<!-- Open Graph (Facebook, LinkedIn previews) -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.tycussolutions.com/"/>
+<meta property="og:title" content="TYCUS Solutions — Powering Industry with Precision & Reliability"/>
+<meta property="og:description" content="High-quality industrial supplies, ISO/IEC 17025 calibration, solar energy, and construction solutions across the Philippines."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/Originallogo.png"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="TYCUS Solutions — Powering Industry with Precision & Reliability"/>
+<meta name="twitter:description" content="High-quality industrial supplies, ISO/IEC 17025 calibration, solar energy, and construction solutions across the Philippines."/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/Originallogo.png"/>
+
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4LV8QRRP1M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4LV8QRRP1M', {
+    send_page_view: true,
+    allow_google_signals: true,
+    allow_ad_personalization_signals: true
+  });
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -97,7 +131,107 @@ section{padding:5rem 5%}
 .partner-cell img{max-height:44px;max-width:110px;width:auto;object-fit:contain;transition:opacity 0.2s}
 .partner-cell:hover img{opacity:0.8}
 
-/* ── Partner ticker ── */
+/* ── Animations ── */
+
+/* Hero entrance */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
+@keyframes pulseBlue{0%,100%{box-shadow:0 0 0 0 rgba(96,165,250,0.4)}50%{box-shadow:0 0 0 8px rgba(96,165,250,0)}}
+
+/* Hero content stagger */
+.hero-badge{animation:fadeUp 0.7s ease both;animation-delay:0.2s}
+.hero h1{animation:fadeUp 0.7s ease both;animation-delay:0.4s}
+.hero p{animation:fadeUp 0.7s ease both;animation-delay:0.6s}
+.hero-btns{animation:fadeUp 0.7s ease both;animation-delay:0.75s}
+.hero-tags{animation:fadeUp 0.7s ease both;animation-delay:0.9s}
+
+/* Nav slide down */
+nav{animation:slideDown 0.5s ease both}
+
+/* Scroll-reveal base — elements start invisible */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* Stagger children inside a revealed parent */
+.stagger-children > *{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease}
+.stagger-children.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:0.05s}
+.stagger-children.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:0.15s}
+.stagger-children.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:0.25s}
+.stagger-children.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:0.35s}
+.stagger-children.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:0.45s}
+.stagger-children.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:0.55s}
+
+/* Stat counter pop */
+.stat-num{transition:transform 0.3s ease}
+.stats-inner > div:hover .stat-num{transform:scale(1.12)}
+
+/* Why card hover lift */
+.why-card{transition:box-shadow 0.25s ease,transform 0.25s ease}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(30,58,138,0.13)}
+
+/* Value card hover */
+.value-card{transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s}
+.value-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(30,58,138,0.09);border-top-color:#3b82f6}
+
+/* Mission/vision card hover */
+.mv-card{transition:border-left-color 0.2s,background 0.2s}
+.mv-card:hover{background:#e8eef8;border-left-color:#3b82f6}
+
+/* Product card hover */
+.product-card{transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s}
+.product-card:hover{border-color:#1e3a8a;transform:translateY(-4px);box-shadow:0 8px 24px rgba(30,58,138,0.1)}
+
+/* Market pills — animate as a group */
+.markets-grid.reveal.visible .market-pill{opacity:1;transform:none}
+.markets-grid .market-pill{opacity:0;transform:translateY(12px);transition:opacity 0.4s ease,transform 0.4s ease}
+.markets-grid.reveal.visible .market-pill:nth-child(1){transition-delay:0.03s}
+.markets-grid.reveal.visible .market-pill:nth-child(2){transition-delay:0.06s}
+.markets-grid.reveal.visible .market-pill:nth-child(3){transition-delay:0.09s}
+.markets-grid.reveal.visible .market-pill:nth-child(4){transition-delay:0.12s}
+.markets-grid.reveal.visible .market-pill:nth-child(5){transition-delay:0.15s}
+.markets-grid.reveal.visible .market-pill:nth-child(6){transition-delay:0.18s}
+.markets-grid.reveal.visible .market-pill:nth-child(7){transition-delay:0.21s}
+.markets-grid.reveal.visible .market-pill:nth-child(8){transition-delay:0.24s}
+.markets-grid.reveal.visible .market-pill:nth-child(9){transition-delay:0.27s}
+.markets-grid.reveal.visible .market-pill:nth-child(10){transition-delay:0.30s}
+.markets-grid.reveal.visible .market-pill:nth-child(11){transition-delay:0.33s}
+.markets-grid.reveal.visible .market-pill:nth-child(12){transition-delay:0.36s}
+.markets-grid.reveal.visible .market-pill:nth-child(13){transition-delay:0.39s}
+.markets-grid.reveal.visible .market-pill:nth-child(14){transition-delay:0.42s}
+.markets-grid.reveal.visible .market-pill:nth-child(15){transition-delay:0.45s}
+.markets-grid.reveal.visible .market-pill:nth-child(16){transition-delay:0.48s}
+.markets-grid.reveal.visible .market-pill:nth-child(17){transition-delay:0.51s}
+.markets-grid.reveal.visible .market-pill:nth-child(18){transition-delay:0.54s}
+.markets-grid.reveal.visible .market-pill:nth-child(19){transition-delay:0.57s}
+.markets-grid.reveal.visible .market-pill:nth-child(20){transition-delay:0.60s}
+.markets-grid.reveal.visible .market-pill:nth-child(21){transition-delay:0.63s}
+.markets-grid.reveal.visible .market-pill:nth-child(22){transition-delay:0.66s}
+
+/* Market pill hover */
+.market-pill{transition:all 0.2s ease}
+
+/* Calib param tag hover */
+.calib-param{transition:background 0.2s,transform 0.15s}
+.calib-param:hover{background:#dbeafe;transform:translateY(-2px);cursor:default}
+
+/* Partner cell hover scale */
+.partner-cell img{transition:opacity 0.2s,transform 0.25s}
+.partner-cell:hover img{opacity:1;transform:scale(1.08)}
+
+/* CTA button pulse on load */
+.nav-cta{animation:pulseBlue 2.5s ease-in-out 2s 3}
+
+/* Hero background slow zoom */
+.hero-bg{animation:heroZoom 18s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+
+
 .ticker-wrap{background:#ffffff;border-top:none;border-bottom:1px solid #e2e8f0;padding:22px 0;overflow:hidden;position:relative}
 .ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
 .ticker-wrap::before{left:0;background:linear-gradient(to right,#ffffff,transparent)}
@@ -139,10 +273,26 @@ footer{background:#0f1e3c;padding:2rem 5%;text-align:center}
 footer p{font-size:13px;color:#64748b}
 footer span{color:#60a5fa;font-weight:600}
 
+/* ── RFQ Form ── */
+.rfq-form{display:grid;gap:12px;margin-top:1.5rem}
+.rfq-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rfq-field{display:flex;flex-direction:column;gap:5px}
+.rfq-field label{font-size:11px;font-weight:700;color:#93c5fd;text-transform:uppercase;letter-spacing:0.07em}
+.rfq-field input,.rfq-field select,.rfq-field textarea{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:7px;padding:10px 14px;font-size:13.5px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s}
+.rfq-field input::placeholder,.rfq-field textarea::placeholder{color:rgba(255,255,255,0.35)}
+.rfq-field input:focus,.rfq-field select:focus,.rfq-field textarea:focus{border-color:#60a5fa;background:rgba(255,255,255,0.12)}
+.rfq-field select{cursor:pointer;color:#fff}
+.rfq-field select option{background:#0f1e3c;color:#fff}
+.rfq-field textarea{resize:vertical;min-height:90px}
+.rfq-submit{background:#1d4ed8;color:#fff;padding:13px 28px;border-radius:7px;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:all 0.2s;margin-top:4px;letter-spacing:0.02em}
+.rfq-submit:hover{background:#2563eb;transform:translateY(-2px)}
+.rfq-success{display:none;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);border-radius:8px;padding:14px 18px;color:#86efac;font-size:13.5px;text-align:center;margin-top:8px}
+
 @media(max-width:768px){
   .about-grid,.contact-grid,.calib-grid,.services-grid{grid-template-columns:1fr}
   .values-grid,.team-grid{grid-template-columns:1fr}
   .nav-links{display:none}
+  .rfq-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -223,11 +373,11 @@ footer span{color:#60a5fa;font-weight:600}
 </div>
 
 <div class="stats">
-  <div class="stats-inner">
+  <div class="stats-inner stagger-children">
     <div><div class="stat-num">14</div><div class="stat-label">Partner Brands</div></div>
     <div><div class="stat-num">11+</div><div class="stat-label">Industries Served</div></div>
     <div><div class="stat-num">4</div><div class="stat-label">Core Service Areas</div></div>
-    <div><div class="stat-num">ISO</div><div class="stat-label">IEC 17025 Accredited</div></div>
+    <div><div class="stat-num">ISO</div><div class="stat-label">IEC 17025 Accredited Partners</div></div>
   </div>
 </div>
 
@@ -235,7 +385,7 @@ footer span{color:#60a5fa;font-weight:600}
   <div class="section-inner">
     <div class="about-grid">
       <!-- LEFT: photos + mission/vision below -->
-      <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="reveal-left" style="display:flex;flex-direction:column;gap:16px">
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;height:280px;gap:8px;border-radius:12px;overflow:hidden">
           <div style="overflow:hidden;border-radius:8px">
             <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/7626.jpg" alt="TYCUS team" style="width:100%;height:100%;object-fit:cover;object-position:center"/>
@@ -253,7 +403,7 @@ footer span{color:#60a5fa;font-weight:600}
         </div>
       </div>
       <!-- RIGHT: heading + text + enlarged values grid -->
-      <div style="display:flex;flex-direction:column">
+      <div class="reveal-right" style="display:flex;flex-direction:column">
         <div class="section-label">About Us</div>
         <h2 class="section-title">Built on Excellence,<br/>Driven by Integrity</h2>
         <p style="color:#475569;line-height:1.8;font-size:14.5px;margin-bottom:1.2rem;text-align:justify">TYCUS Enterprises Corporation, operating under the name TYCUS Solutions, is a dynamic company established to provide high-quality industrial supplies, calibration services, and reliable construction solutions.</p>
@@ -274,7 +424,7 @@ footer span{color:#60a5fa;font-weight:600}
     <div class="section-label">What We Do</div>
     <h2 class="section-title">Our Core Services</h2>
     <p class="section-sub">End-to-end solutions designed to meet the evolving demands of industry, energy, and infrastructure.</p>
-    <div class="services-grid">
+    <div class="services-grid stagger-children">
       <div class="service-card">
         <div class="service-img">
           <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%205.png" alt="Solar installation"/>
@@ -297,17 +447,17 @@ footer span{color:#60a5fa;font-weight:600}
       </div>
       <div class="service-card">
         <div class="service-img">
-          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%207.png" alt="Calibration instruments"/>
+          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/calibration1.png" alt="Calibration instruments"/>
         </div>
         <div class="service-body">
           <div class="service-icon">🔬</div>
           <h3>Calibration Services</h3>
-          <p>Precise and reliable calibration services partnered with an ISO/IEC 17025 accredited laboratory — ensuring accuracy, compliance, and operational efficiency across all sectors.</p>
+          <p>Precise and reliable calibration services with our accredited partner laboratories — ISO/IEC 17025 — ensuring accuracy, compliance, and operational efficiency across all sectors.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-img">
-          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%206.png" alt="Construction project"/>
+          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/construction.png" alt="Construction project"/>
         </div>
         <div class="service-body">
           <div class="service-icon">🏗️</div>
@@ -324,7 +474,7 @@ footer span{color:#60a5fa;font-weight:600}
     <div class="section-label">Industrial Supplies</div>
     <h2 class="section-title">Product Categories</h2>
     <p class="section-sub">A comprehensive range of industrial products across five major categories, backed by global supplier partnerships.</p>
-    <div class="products-grid">
+    <div class="products-grid stagger-children">
       <div class="product-card">
         <h4>⚡ Process &amp; Field Instruments</h4>
         <ul class="product-items">
@@ -380,9 +530,9 @@ footer span{color:#60a5fa;font-weight:600}
 <section style="background:#f1f5f9;padding:5rem 5%">
   <div class="section-inner">
     <div class="calib-grid">
-      <div>
+      <div class="reveal-left">
         <div class="section-label">Calibration Services</div>
-        <h2 class="section-title">ISO/IEC 17025 Accredited Calibration</h2>
+        <h2 class="section-title">ISO/IEC 17025 Accredited Partners in Calibration</h2>
         <p style="color:#64748b;line-height:1.75;font-size:14.5px;margin-bottom:1rem">Partnering with a fully accredited calibration laboratory — covering industrial, laboratory, and bio-medical parameters to ensure your instruments meet the highest compliance standards.</p>
         <div class="calib-params">
           <span class="calib-param">Thermometry &amp; Hygrometry</span>
@@ -395,8 +545,8 @@ footer span{color:#60a5fa;font-weight:600}
           <span class="calib-param">Density</span>
         </div>
       </div>
-      <div class="calib-img">
-        <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%207.png" alt="Calibration equipment"/>
+      <div class="calib-img reveal-right">
+        <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/calibration1.png" alt="Calibration equipment"/>
       </div>
     </div>
   </div>
@@ -407,7 +557,7 @@ footer span{color:#60a5fa;font-weight:600}
     <div class="section-label">Markets &amp; Customers</div>
     <h2 class="section-title">Industries We Serve</h2>
     <p class="section-sub">Serving a diverse range of manufacturing and processing industries across the Philippines.</p>
-    <div class="markets-grid">
+    <div class="markets-grid reveal">
       <span class="market-pill">⚡ Power</span>
       <span class="market-pill">🌿 Ethanol &amp; Biofuels</span>
       <span class="market-pill">🏭 Cement</span>
@@ -463,7 +613,7 @@ footer span{color:#60a5fa;font-weight:600}
     <div class="section-label">Why Choose Us</div>
     <h2 class="section-title">The TYCUS Advantage</h2>
     <p class="section-sub">What sets us apart in every project and transaction.</p>
-    <div class="why-grid">
+    <div class="why-grid stagger-children">
       <div class="why-card"><div class="why-icon">🌐</div><div><h4>Global Supplier Network</h4><p>Access to a vast network of world-class suppliers combined with in-depth technical knowledge.</p></div></div>
       <div class="why-card"><div class="why-icon">✅</div><div><h4>End-to-End Support</h4><p>From product sales through installation, commissioning, calibration, and ongoing servicing.</p></div></div>
       <div class="why-card"><div class="why-icon">🏆</div><div><h4>Accredited Standards</h4><p>Calibration backed by ISO/IEC 17025 accreditation for verified accuracy and compliance.</p></div></div>
@@ -479,6 +629,7 @@ footer span{color:#60a5fa;font-weight:600}
   <div class="contact-overlay"></div>
   <div class="contact-inner">
     <div class="contact-grid">
+      <!-- LEFT: contact info + team -->
       <div>
         <div class="section-label">Contact Us</div>
         <h2 class="section-title">Let's Work Together</h2>
@@ -487,9 +638,7 @@ footer span{color:#60a5fa;font-weight:600}
         <div class="contact-detail"><span class="dot"></span><span>📱 +63 968 147 0710</span></div>
         <div class="contact-detail"><span class="dot"></span><a href="mailto:sales.tycus@gmail.com">sales.tycus@gmail.com</a></div>
         <div class="contact-detail"><span class="dot"></span><span>📍 Mediatrix Ville, Lanatan, Balayan, Batangas</span></div>
-      </div>
-      <div>
-        <h3 style="font-size:13px;font-weight:700;margin-bottom:1rem;color:#93c5fd;text-transform:uppercase;letter-spacing:0.08em">Our Sales Team</h3>
+        <h3 style="font-size:13px;font-weight:700;margin:1.5rem 0 1rem;color:#93c5fd;text-transform:uppercase;letter-spacing:0.08em">Our Sales Team</h3>
         <div class="team-grid">
           <div class="team-card">
             <h4>Levi Obligacion</h4>
@@ -517,6 +666,50 @@ footer span{color:#60a5fa;font-weight:600}
           </div>
         </div>
       </div>
+      <!-- RIGHT: RFQ Form -->
+      <div>
+        <h3 style="font-size:13px;font-weight:700;margin-bottom:0.4rem;color:#93c5fd;text-transform:uppercase;letter-spacing:0.08em">Request for Quotation</h3>
+        <p style="color:#bfdbfe;font-size:13.5px;line-height:1.7;margin-bottom:0.5rem">Fill out the form below and our team will get back to you within 24 hours.</p>
+        <form class="rfq-form" id="rfqForm" action="https://formspree.io/f/xrevzylb" method="POST">
+          <div class="rfq-row">
+            <div class="rfq-field">
+              <label for="rfq-name">Full Name *</label>
+              <input type="text" id="rfq-name" name="name" placeholder="Juan dela Cruz" required/>
+            </div>
+            <div class="rfq-field">
+              <label for="rfq-company">Company *</label>
+              <input type="text" id="rfq-company" name="company" placeholder="Your Company Inc." required/>
+            </div>
+          </div>
+          <div class="rfq-row">
+            <div class="rfq-field">
+              <label for="rfq-email">Email Address *</label>
+              <input type="email" id="rfq-email" name="email" placeholder="juan@company.com" required/>
+            </div>
+            <div class="rfq-field">
+              <label for="rfq-phone">Phone Number</label>
+              <input type="tel" id="rfq-phone" name="phone" placeholder="+63 9XX XXX XXXX"/>
+            </div>
+          </div>
+          <div class="rfq-field">
+            <label for="rfq-inquiry">Type of Inquiry *</label>
+            <select id="rfq-inquiry" name="inquiry" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>Industrial Supplies</option>
+              <option>Calibration Services</option>
+              <option>Renewable Energy / Solar</option>
+              <option>Design &amp; Construction</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="rfq-field">
+            <label for="rfq-message">Message / Details</label>
+            <textarea id="rfq-message" name="message" placeholder="Describe your requirements, quantities, or any questions..."></textarea>
+          </div>
+          <button type="submit" class="rfq-submit">📩 Submit RFQ</button>
+          <div class="rfq-success" id="rfqSuccess">✅ Thank you! Your RFQ has been submitted. We'll be in touch within 24 hours.</div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -525,5 +718,54 @@ footer span{color:#60a5fa;font-weight:600}
   <p>© 2025 <span>TYCUS Solutions</span> · TYCUS Enterprises Corporation · All Rights Reserved · Balayan, Batangas, Philippines</p>
 </footer>
 
+<script>
+  // Scroll-reveal IntersectionObserver
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+<script>
+  // RFQ Form — Formspree AJAX submission
+  const form = document.getElementById('rfqForm');
+  const success = document.getElementById('rfqSuccess');
+  if(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const btn = form.querySelector('.rfq-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(res.ok){
+          form.reset();
+          success.style.display = 'block';
+          btn.textContent = '✅ Submitted!';
+          // GA4 — track RFQ submission as conversion event (G-4LV8QRRP1M)
+          if(typeof gtag !== 'undefined'){
+            gtag('event', 'rfq_submitted', { event_category: 'Lead', event_label: 'RFQ Form' });
+          }
+        } else {
+          btn.textContent = '❌ Error — try again';
+          btn.disabled = false;
+        }
+      } catch(err){
+        btn.textContent = '❌ Error — try again';
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
 </body>
 </html>
