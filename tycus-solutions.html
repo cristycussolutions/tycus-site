@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TYCUS Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#1a2332}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#ffffff;border-bottom:1px solid #e2e8f0;padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:84px}
+.nav-logo img{height:72px;width:auto;object-fit:contain;display:block}
+.nav-links{display:flex;gap:2rem;font-size:13.5px;color:#64748b}
+.nav-links a:hover{color:#1e3a8a;transition:color 0.2s}
+.nav-cta{background:#1e3a8a;color:#fff;padding:9px 22px;border-radius:6px;font-size:13.5px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s}
+.nav-cta:hover{background:#1d4ed8}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 70px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/herophoto.png');background-size:cover;background-position:center;filter:brightness(0.28)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,30,60,0.7) 0%,rgba(15,30,60,0.85) 100%)}
+.hero-content{position:relative;z-index:2}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);color:#93c5fd;padding:6px 18px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:1.1;max-width:820px;margin:0 auto 1.5rem;letter-spacing:-0.025em;color:#fff}
+.hero h1 span{color:#60a5fa}
+.hero p{font-size:1.05rem;color:#cbd5e1;max-width:580px;margin:0 auto 2.5rem;line-height:1.75}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#1e3a8a;color:#fff;padding:14px 32px;border-radius:7px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all 0.2s}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:7px;font-size:15px;font-weight:600;border:1px solid rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s}
+.btn-outline:hover{border-color:#fff;transform:translateY(-2px)}
+.hero-tags{margin-top:3rem;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:20px;font-size:12px;color:#cbd5e1}
+
+.stats{background:#1e3a8a;padding:3rem 5%}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;text-align:center}
+.stat-num{font-size:2.4rem;font-weight:900;color:#fff;line-height:1}
+.stat-label{font-size:12.5px;color:#93c5fd;margin-top:6px}
+
+section{padding:5rem 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-size:11.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e3a8a;margin-bottom:0.75rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.2;margin-bottom:1rem;letter-spacing:-0.015em;color:#0f1e3c}
+.section-sub{font-size:1rem;color:#64748b;max-width:560px;line-height:1.75;margin-bottom:3rem}
+
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch}
+.about-img{border-radius:12px;overflow:hidden;height:420px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.mission-vision{display:grid;gap:12px;margin-bottom:1.5rem}
+.mv-card{background:#f1f5f9;border-left:3px solid #1e3a8a;border-radius:0 8px 8px 0;padding:14px 16px}
+.mv-card h4{font-size:12px;font-weight:700;color:#1e3a8a;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px}
+.mv-card p{font-size:13px;color:#475569;line-height:1.65}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.value-card{background:#f8fafc;border:1px solid #e2e8f0;border-top:3px solid #1e3a8a;border-radius:8px;padding:14px 16px}
+.value-card h4{font-size:13px;font-weight:700;color:#0f1e3c;margin-bottom:3px}
+.value-card p{font-size:12px;color:#64748b;line-height:1.5}
+
+.services{background:#f1f5f9}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.service-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:box-shadow 0.2s,transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.service-card:hover{box-shadow:0 8px 30px rgba(30,58,138,0.12);transform:translateY(-3px)}
+.service-img{height:200px;overflow:hidden}
+.service-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.service-card:hover .service-img img{transform:scale(1.05)}
+.service-body{padding:1.5rem}
+.service-icon{width:40px;height:40px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:0.75rem}
+.service-body h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:#0f1e3c}
+.service-body p{font-size:13.5px;color:#64748b;line-height:1.65}
+
+.products{background:#fff}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.product-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;transition:border-color 0.2s}
+.product-card:hover{border-color:#1e3a8a}
+.product-card h4{font-size:13px;font-weight:700;color:#0f1e3c;margin-bottom:10px}
+.product-items{list-style:none}
+.product-items li{font-size:12px;color:#64748b;padding:4px 0;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:6px}
+.product-items li::before{content:'';width:5px;height:5px;border-radius:50%;background:#1e3a8a;flex-shrink:0}
+.product-items li:last-child{border-bottom:none}
+
+.calib-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.calib-img{border-radius:12px;overflow:hidden;height:380px}
+.calib-img img{width:100%;height:100%;object-fit:cover}
+.calib-params{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
+.calib-param{background:#eff6ff;border:1px solid #bfdbfe;padding:7px 16px;border-radius:6px;font-size:12.5px;color:#1e40af;font-weight:600}
+
+.markets-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:2rem}
+.market-pill{background:#fff;border:1px solid #e2e8f0;padding:8px 18px;border-radius:20px;font-size:13px;color:#475569;transition:all 0.2s;cursor:default;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.market-pill:hover{border-color:#1e3a8a;color:#1e3a8a;background:#eff6ff}
+
+.partners{background:#fff}
+.partners-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#e2e8f0;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;margin-top:2rem}
+.partner-cell{background:#fff;display:flex;align-items:center;justify-content:center;padding:24px 20px;transition:background 0.2s}
+.partner-cell:hover{background:#f8fafc}
+.partner-cell img{max-height:44px;max-width:110px;width:auto;object-fit:contain;transition:opacity 0.2s}
+.partner-cell:hover img{opacity:0.8}
+
+/* ── Partner ticker ── */
+.ticker-wrap{background:#ffffff;border-top:none;border-bottom:1px solid #e2e8f0;padding:22px 0;overflow:hidden;position:relative}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.ticker-wrap::before{left:0;background:linear-gradient(to right,#ffffff,transparent)}
+.ticker-wrap::after{right:0;background:linear-gradient(to left,#ffffff,transparent)}
+.ticker-label{position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:3;background:#f8f9fb;padding:0 20px 0 5%;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#94a3b8;white-space:nowrap;display:none}
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 32s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-set{display:flex;align-items:center;gap:0}
+.ticker-item{display:flex;align-items:center;justify-content:center;padding:0 40px;height:56px;border-right:1px solid #e2e8f0}
+.ticker-item img{height:36px;max-width:110px;width:auto;object-fit:contain;filter:opacity(0.85);transition:filter 0.3s}
+.ticker-item:hover img{filter:opacity(1)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.why{background:#f1f5f9}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.why-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.why-icon{width:44px;height:44px;background:#eff6ff;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.why-card h4{font-size:15px;font-weight:700;margin-bottom:5px;color:#0f1e3c}
+.why-card p{font-size:13.5px;color:#64748b;line-height:1.65}
+
+.contact{position:relative;overflow:hidden;padding:5rem 5%}
+.contact-bg{position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/7632.jpg');background-size:cover;background-position:center;filter:brightness(0.18)}
+.contact-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,30,80,0.92) 0%,rgba(10,20,60,0.88) 100%)}
+.contact-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.contact .section-label{color:#93c5fd}
+.contact .section-title{color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-detail{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px;color:#bfdbfe}
+.contact-detail .dot{width:7px;height:7px;border-radius:50%;background:#60a5fa;flex-shrink:0}
+.contact-detail a{color:#93c5fd}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.team-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:14px;transition:background 0.2s}
+.team-card:hover{background:rgba(255,255,255,0.13)}
+.team-card h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.team-card .role{font-size:11px;color:#93c5fd;margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em}
+.team-card .info{font-size:11.5px;color:#bfdbfe;display:block;margin-top:3px}
+
+footer{background:#0f1e3c;padding:2rem 5%;text-align:center}
+footer p{font-size:13px;color:#64748b}
+footer span{color:#60a5fa;font-weight:600}
+
+@media(max-width:768px){
+  .about-grid,.contact-grid,.calib-grid,.services-grid{grid-template-columns:1fr}
+  .values-grid,.team-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/Originallogo.png" alt="TYCUS Solutions" style="height:72px;width:auto;object-fit:contain;display:block"/></a>
+    <div class="nav-links">
+      <a href="#about">About Us</a>
+      <a href="#services">Our Services</a>
+      <a href="#products">Products</a>
+      <a href="#partners">Partners</a>
+      <a href="#contact">Our Team</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us — RFQ</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Industrial · Trading · Construction</div>
+    <h1>Powering Industry with<br/><span>Precision &amp; Reliability</span></h1>
+    <p>TYCUS Solutions delivers high-quality industrial supplies, expert calibration services, and reliable construction solutions across the Philippines and beyond.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+      <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Your Quotation</button>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag">ISO/IEC 17025 Calibration</span>
+      <span class="hero-tag">Solar Energy Solutions</span>
+      <span class="hero-tag">Industrial Supplies</span>
+      <span class="hero-tag">Design &amp; Construction</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Infinite partner ticker ── -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <!-- Set 1 -->
+    <div class="ticker-set">
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/siemenslogo-removebg-preview.png" alt="Siemens"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/danfosslogo-removebg-preview.png" alt="Danfoss"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/rosemountlogo-removebg-preview.png" alt="Rosemount"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/yokogawalogo-removebg-preview.png" alt="Yokogawa"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/endress%2Bhauserlogo-removebg-preview.png" alt="Endress+Hauser"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/samsonlogo-removebg-preview.png" alt="Samson"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/pennant-removebg-preview.png" alt="Pennant"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/abblogo-removebg-preview.png" alt="ABB"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/kirloskarlogo-removebg-preview.png" alt="Kirloskar"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/grassologo-removebg-preview.png" alt="Grasso"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/vataclogo-removebg-preview.png" alt="Vatac"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/atlascopcologo-removebg-preview.png" alt="Atlas Copco"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/sicksensorlogo-removebg-preview.png" alt="SICK Sensor Intelligence"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/shneiderelectriclogo-removebg-preview.png" alt="Schneider Electric"/></div>
+    </div>
+    <!-- Set 2 — exact duplicate for seamless loop -->
+    <div class="ticker-set">
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/siemenslogo-removebg-preview.png" alt="Siemens"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/danfosslogo-removebg-preview.png" alt="Danfoss"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/rosemountlogo-removebg-preview.png" alt="Rosemount"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/yokogawalogo-removebg-preview.png" alt="Yokogawa"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/endress%2Bhauserlogo-removebg-preview.png" alt="Endress+Hauser"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/samsonlogo-removebg-preview.png" alt="Samson"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/pennant-removebg-preview.png" alt="Pennant"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/abblogo-removebg-preview.png" alt="ABB"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/kirloskarlogo-removebg-preview.png" alt="Kirloskar"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/grassologo-removebg-preview.png" alt="Grasso"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/vataclogo-removebg-preview.png" alt="Vatac"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/atlascopcologo-removebg-preview.png" alt="Atlas Copco"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/sicksensorlogo-removebg-preview.png" alt="SICK Sensor Intelligence"/></div>
+      <div class="ticker-item"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/shneiderelectriclogo-removebg-preview.png" alt="Schneider Electric"/></div>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div><div class="stat-num">14</div><div class="stat-label">Partner Brands</div></div>
+    <div><div class="stat-num">11+</div><div class="stat-label">Industries Served</div></div>
+    <div><div class="stat-num">4</div><div class="stat-label">Core Service Areas</div></div>
+    <div><div class="stat-num">ISO</div><div class="stat-label">IEC 17025 Accredited</div></div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <!-- LEFT: photos + mission/vision below -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;height:280px;gap:8px;border-radius:12px;overflow:hidden">
+          <div style="overflow:hidden;border-radius:8px">
+            <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/7626.jpg" alt="TYCUS team" style="width:100%;height:100%;object-fit:cover;object-position:center"/>
+          </div>
+          <div style="overflow:hidden;border-radius:8px">
+            <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/7632.jpg" alt="TYCUS industrial" style="width:100%;height:100%;object-fit:cover;object-position:center"/>
+          </div>
+          <div style="overflow:hidden;border-radius:8px">
+            <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/7633.jpg" alt="TYCUS site work" style="width:100%;height:100%;object-fit:cover;object-position:center"/>
+          </div>
+        </div>
+        <div class="mission-vision" style="margin-bottom:0">
+          <div class="mv-card"><h4>Our Mission</h4><p>To deliver quality-driven industrial supplies, calibration services, and construction solutions that meet the evolving needs of our clients — building long-term partnerships through trust, reliability, and exceptional service.</p></div>
+          <div class="mv-card"><h4>Our Vision</h4><p>To become a trusted and leading provider of integrated industrial and construction solutions, recognized for innovation, excellence, and customer satisfaction.</p></div>
+        </div>
+      </div>
+      <!-- RIGHT: heading + text + enlarged values grid -->
+      <div style="display:flex;flex-direction:column">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Built on Excellence,<br/>Driven by Integrity</h2>
+        <p style="color:#475569;line-height:1.8;font-size:14.5px;margin-bottom:1.2rem;text-align:justify">TYCUS Enterprises Corporation, operating under the name TYCUS Solutions, is a dynamic company established to provide high-quality industrial supplies, calibration services, and reliable construction solutions.</p>
+        <p style="color:#475569;line-height:1.8;font-size:14.5px;margin-bottom:1.5rem;text-align:justify">Backed by a team of skilled and experienced professionals, every project and transaction is handled with efficiency, accuracy, and integrity — serving diverse industries with products and services that meet the highest standards of quality, safety, and performance.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1">
+          <div class="value-card" style="padding:20px;display:flex;flex-direction:column;justify-content:center"><h4 style="font-size:15px;margin-bottom:6px">Quality</h4><p style="font-size:13px">Highest standards in every product and service</p></div>
+          <div class="value-card" style="padding:20px;display:flex;flex-direction:column;justify-content:center"><h4 style="font-size:15px;margin-bottom:6px">Integrity</h4><p style="font-size:13px">Honesty, transparency, accountability</p></div>
+          <div class="value-card" style="padding:20px;display:flex;flex-direction:column;justify-content:center"><h4 style="font-size:15px;margin-bottom:6px">Reliability</h4><p style="font-size:13px">Consistent and dependable results</p></div>
+          <div class="value-card" style="padding:20px;display:flex;flex-direction:column;justify-content:center"><h4 style="font-size:15px;margin-bottom:6px">Innovation</h4><p style="font-size:13px">Continuously improving and adapting</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Our Core Services</h2>
+    <p class="section-sub">End-to-end solutions designed to meet the evolving demands of industry, energy, and infrastructure.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%205.png" alt="Solar installation"/>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">☀️</div>
+          <h3>Renewable Energy Solutions</h3>
+          <p>Supply, design, and installation of high-quality solar panel systems for residential, commercial, and industrial applications — from system assessment to testing and commissioning.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo10.png" alt="Industrial equipment"/>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">⚙️</div>
+          <h3>Industrial Supplies</h3>
+          <p>Comprehensive range of high-quality industrial products through our global supplier network — with full support from product sales, installation, commissioning, and servicing.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%207.png" alt="Calibration instruments"/>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">🔬</div>
+          <h3>Calibration Services</h3>
+          <p>Precise and reliable calibration services partnered with an ISO/IEC 17025 accredited laboratory — ensuring accuracy, compliance, and operational efficiency across all sectors.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%206.png" alt="Construction project"/>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">🏗️</div>
+          <h3>Design &amp; Construction</h3>
+          <p>Top-tier construction services across residential, commercial, and industrial projects — from conceptualization and architectural design to building permits and project completion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="section-inner">
+    <div class="section-label">Industrial Supplies</div>
+    <h2 class="section-title">Product Categories</h2>
+    <p class="section-sub">A comprehensive range of industrial products across five major categories, backed by global supplier partnerships.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <h4>⚡ Process &amp; Field Instruments</h4>
+        <ul class="product-items">
+          <li>Pressure Control &amp; Measurement</li>
+          <li>Temperature Measurement</li>
+          <li>Level Measurement</li>
+          <li>Flow Control &amp; Measurement</li>
+          <li>Valves, Actuators, Positioners</li>
+        </ul>
+      </div>
+      <div class="product-card">
+        <h4>🔌 Electrical Products</h4>
+        <ul class="product-items">
+          <li>Controllers &amp; Automation Devices</li>
+          <li>Industrial Motors</li>
+          <li>Power Converters</li>
+          <li>Generator Sets</li>
+          <li>Switch Gears</li>
+        </ul>
+      </div>
+      <div class="product-card">
+        <h4>❄️ Refrigeration &amp; Compressor</h4>
+        <ul class="product-items">
+          <li>Air Compressor</li>
+          <li>Gas Compressor</li>
+          <li>A.C. &amp; Refrigeration</li>
+          <li>Accessories</li>
+          <li>Hardware Materials</li>
+        </ul>
+      </div>
+      <div class="product-card">
+        <h4>🧪 Calibrators &amp; Lab Equipment</h4>
+        <ul class="product-items">
+          <li>Dry Block &amp; Temperature Bath</li>
+          <li>Pressure Pumps &amp; Test Gauge</li>
+          <li>Multi-Function Calibrator</li>
+          <li>Autoclave</li>
+          <li>Incubator and Oven</li>
+        </ul>
+      </div>
+      <div class="product-card">
+        <h4>🔥 Industrial Heaters</h4>
+        <ul class="product-items">
+          <li>Tubular Heater</li>
+          <li>Cartridge Heater</li>
+          <li>Immersion Heater</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f1f5f9;padding:5rem 5%">
+  <div class="section-inner">
+    <div class="calib-grid">
+      <div>
+        <div class="section-label">Calibration Services</div>
+        <h2 class="section-title">ISO/IEC 17025 Accredited Calibration</h2>
+        <p style="color:#64748b;line-height:1.75;font-size:14.5px;margin-bottom:1rem">Partnering with a fully accredited calibration laboratory — covering industrial, laboratory, and bio-medical parameters to ensure your instruments meet the highest compliance standards.</p>
+        <div class="calib-params">
+          <span class="calib-param">Thermometry &amp; Hygrometry</span>
+          <span class="calib-param">Pressure</span>
+          <span class="calib-param">Mass &amp; Force</span>
+          <span class="calib-param">Volume</span>
+          <span class="calib-param">Analytical &amp; Environmental</span>
+          <span class="calib-param">Dimensional</span>
+          <span class="calib-param">Electrical &amp; Frequency</span>
+          <span class="calib-param">Density</span>
+        </div>
+      </div>
+      <div class="calib-img">
+        <img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/photo%207.png" alt="Calibration equipment"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:5rem 5%">
+  <div class="section-inner">
+    <div class="section-label">Markets &amp; Customers</div>
+    <h2 class="section-title">Industries We Serve</h2>
+    <p class="section-sub">Serving a diverse range of manufacturing and processing industries across the Philippines.</p>
+    <div class="markets-grid">
+      <span class="market-pill">⚡ Power</span>
+      <span class="market-pill">🌿 Ethanol &amp; Biofuels</span>
+      <span class="market-pill">🏭 Cement</span>
+      <span class="market-pill">🍔 Food &amp; Beverages</span>
+      <span class="market-pill">💧 Water / Wastewater</span>
+      <span class="market-pill">📄 Pulp &amp; Paper</span>
+      <span class="market-pill">🧪 Chemical</span>
+      <span class="market-pill">🛢️ Petrochemical</span>
+      <span class="market-pill">🔩 Metal Finishing</span>
+      <span class="market-pill">💊 Pharmaceutical</span>
+      <span class="market-pill">🔧 Steel</span>
+      <span class="market-pill">❄️ Cold Chain &amp; Cold Storage</span>
+      <span class="market-pill">🏬 Warehousing &amp; Logistics</span>
+      <span class="market-pill">🧴 Cosmetics &amp; Personal Care</span>
+      <span class="market-pill">🐟 Aquaculture &amp; Fisheries</span>
+      <span class="market-pill">🌾 Agriculture &amp; Agro-Processing</span>
+      <span class="market-pill">🍬 Confectionery &amp; Packaging</span>
+      <span class="market-pill">🛞 Rubber &amp; Plastics</span>
+      <span class="market-pill">🔬 Biotechnology &amp; Life Sciences</span>
+      <span class="market-pill">⛏️ Mining &amp; Minerals</span>
+      <span class="market-pill">🚢 Marine &amp; Shipbuilding</span>
+      <span class="market-pill">✈️ Aerospace &amp; Defense</span>
+    </div>
+  </div>
+</section>
+
+<section class="partners" id="partners">
+  <div class="section-inner">
+    <div class="section-label">Our Partner Brands</div>
+    <h2 class="section-title">Trusted Global Partners</h2>
+    <p class="section-sub">We represent and distribute world-class industrial brands backed by decades of engineering excellence.</p>
+    <div class="partners-grid">
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/siemenslogo-removebg-preview.png" alt="Siemens"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/danfosslogo-removebg-preview.png" alt="Danfoss"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/rosemountlogo-removebg-preview.png" alt="Rosemount"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/yokogawalogo-removebg-preview.png" alt="Yokogawa"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/endress%2Bhauserlogo-removebg-preview.png" alt="Endress+Hauser"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/samsonlogo-removebg-preview.png" alt="Samson"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/pennant-removebg-preview.png" alt="Pennant"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/abblogo-removebg-preview.png" alt="ABB"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/kirloskarlogo-removebg-preview.png" alt="Kirloskar"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/grassologo-removebg-preview.png" alt="Grasso"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/vataclogo-removebg-preview.png" alt="Vatac"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/atlascopcologo-removebg-preview.png" alt="Atlas Copco"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/sicksensorlogo-removebg-preview.png" alt="SICK Sensor Intelligence"/></div>
+      <div class="partner-cell"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/shneiderelectriclogo-removebg-preview.png" alt="Schneider Electric"/></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">The TYCUS Advantage</h2>
+    <p class="section-sub">What sets us apart in every project and transaction.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🌐</div><div><h4>Global Supplier Network</h4><p>Access to a vast network of world-class suppliers combined with in-depth technical knowledge.</p></div></div>
+      <div class="why-card"><div class="why-icon">✅</div><div><h4>End-to-End Support</h4><p>From product sales through installation, commissioning, calibration, and ongoing servicing.</p></div></div>
+      <div class="why-card"><div class="why-icon">🏆</div><div><h4>Accredited Standards</h4><p>Calibration backed by ISO/IEC 17025 accreditation for verified accuracy and compliance.</p></div></div>
+      <div class="why-card"><div class="why-icon">🔋</div><div><h4>Sustainable Solutions</h4><p>Helping clients transition to renewable energy through reliable, cost-efficient solar solutions.</p></div></div>
+      <div class="why-card"><div class="why-icon">👷</div><div><h4>Experienced Team</h4><p>Skilled engineers and professionals ensuring every project is handled with efficiency and integrity.</p></div></div>
+      <div class="why-card"><div class="why-icon">🤝</div><div><h4>Long-Term Partnerships</h4><p>Building trusted relationships through reliability, transparency, and exceptional service.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-overlay"></div>
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Contact Us</div>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p style="color:#bfdbfe;font-size:14.5px;line-height:1.75;margin-bottom:1.5rem">Ready to discuss your industrial, calibration, energy, or construction needs? Reach out to our team of experts today.</p>
+        <div class="contact-detail"><span class="dot"></span><span>📞 (043) 332 9080</span></div>
+        <div class="contact-detail"><span class="dot"></span><span>📱 +63 968 147 0710</span></div>
+        <div class="contact-detail"><span class="dot"></span><a href="mailto:sales.tycus@gmail.com">sales.tycus@gmail.com</a></div>
+        <div class="contact-detail"><span class="dot"></span><span>📍 Mediatrix Ville, Lanatan, Balayan, Batangas</span></div>
+      </div>
+      <div>
+        <h3 style="font-size:13px;font-weight:700;margin-bottom:1rem;color:#93c5fd;text-transform:uppercase;letter-spacing:0.08em">Our Sales Team</h3>
+        <div class="team-grid">
+          <div class="team-card">
+            <h4>Levi Obligacion</h4>
+            <div class="role">Sales &amp; Application Engineer</div>
+            <span class="info">+63 968 147 0710</span>
+            <span class="info" style="color:#93c5fd">sales.tycus@gmail.com</span>
+          </div>
+          <div class="team-card">
+            <h4>Engr. Eds Obligacion</h4>
+            <div class="role">Sales &amp; Project Engineer</div>
+            <span class="info">+63 945 875 0211</span>
+            <span class="info" style="color:#93c5fd">eds.tycussolutions@gmail.com</span>
+          </div>
+          <div class="team-card">
+            <h4>Sheryl Rodriguez</h4>
+            <div class="role">Sales &amp; Marketing Manager</div>
+            <span class="info">+63 917 883 9142</span>
+            <span class="info" style="color:#93c5fd">sheryl.tycussolutions@gmail.com</span>
+          </div>
+          <div class="team-card">
+            <h4>Cris Akol</h4>
+            <div class="role">Sales &amp; Application Engineer</div>
+            <span class="info">+63 961 483 8836</span>
+            <span class="info" style="color:#93c5fd">cris.tycussolutions@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>TYCUS Solutions</span> · TYCUS Enterprises Corporation · All Rights Reserved · Balayan, Batangas, Philippines</p>
+</footer>
+
+</body>
+</html>
