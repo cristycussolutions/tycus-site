@@ -54,7 +54,7 @@ a{text-decoration:none;color:inherit}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#ffffff;border-bottom:1px solid #e2e8f0;padding:0 5%}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:84px}
-.nav-logo img{height:72px;width:auto;object-fit:contain;display:block}
+.nav-logo img, .nav-logo-img{height:72px;width:auto;object-fit:contain;display:block}
 .nav-links{display:flex;gap:2rem;font-size:13.5px;color:#64748b}
 .nav-links a:hover{color:#1e3a8a;transition:color 0.2s}
 .nav-cta{background:#1e3a8a;color:#fff;padding:9px 22px;border-radius:6px;font-size:13.5px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s}
@@ -312,8 +312,9 @@ footer span{color:#60a5fa;font-weight:600}
 @media(max-width:768px){
   /* Nav */
   .nav-links{display:none}
-  .nav-inner{height:72px}
-  .nav-logo img{height:54px}
+  .nav-inner{height:60px}
+  .nav-logo img, .nav-logo-img{height:42px}
+  .nav-cta{padding:7px 12px;font-size:12px}
 
   /* Hero */
   .hero{padding:100px 5% 60px}
@@ -359,9 +360,9 @@ footer span{color:#60a5fa;font-weight:600}
 /* Mobile phones (max 480px) */
 @media(max-width:480px){
   /* Nav */
-  .nav-inner{height:64px}
-  .nav-logo img{height:46px}
-  .nav-cta{padding:8px 14px;font-size:12px}
+  .nav-inner{height:56px}
+  .nav-logo img, .nav-logo-img{height:36px}
+  .nav-cta{padding:7px 11px;font-size:11.5px}
 
   /* Hero */
   .hero{padding:90px 5% 50px}
@@ -416,6 +417,7 @@ footer span{color:#60a5fa;font-weight:600}
 /* Very small phones (max 360px) */
 @media(max-width:360px){
   .nav-cta{display:none}
+  .nav-logo img, .nav-logo-img{height:32px}
   .hero h1{font-size:1.5rem}
   .partners-grid{grid-template-columns:repeat(2,1fr)}
   .stats-inner{grid-template-columns:1fr 1fr}
@@ -426,7 +428,7 @@ footer span{color:#60a5fa;font-weight:600}
 
 <nav>
   <div class="nav-inner">
-    <a href="#"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/Originallogo.png" alt="TYCUS Solutions" style="height:72px;width:auto;object-fit:contain;display:block"/></a>
+    <a href="#"><img src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/Originallogo.png" alt="TYCUS Solutions" class="nav-logo-img" style="width:auto;object-fit:contain;display:block"/></a>
     <div class="nav-links" id="navLinks">
       <a href="#about">About Us</a>
       <a href="#services">Our Services</a>
