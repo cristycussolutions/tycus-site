@@ -69,11 +69,10 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 /* ============================
    HERO
    ============================ */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/herophoto.png') center/cover no-repeat;filter:brightness(0.22);animation:hZoom 20s ease-in-out infinite alternate}
+.hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.28)}
 .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,46,0.72) 0%,rgba(8,18,46,0.88) 100%)}
-#hero-cv{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.hero-body{position:relative;z-index:2;max-width:860px;margin:0 auto}
+.hero-body{position:relative;z-index:2;max-width:860px;margin:0 auto;width:100%;padding:0 4px}
 .hero-badge{display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);color:#93c5fd;padding:6px 18px;border-radius:20px;font-size:11.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp 0.7s ease 0.15s both}
 .hero h1{font-size:clamp(2rem,5vw,3.8rem);font-weight:900;line-height:1.12;color:#fff;letter-spacing:-0.025em;animation:fadeUp 0.7s ease 0.35s both}
 .hero h1 .tw-wrap{display:block;color:#60a5fa;min-height:1.2em;margin-top:2px}
@@ -281,7 +280,6 @@ footer span{color:#60a5fa;font-weight:600}
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-@keyframes hZoom{from{transform:scale(1)}to{transform:scale(1.07)}}
 @keyframes tScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes mqScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes pulseBtn{0%,100%{box-shadow:0 0 0 0 rgba(96,165,250,0.45)}50%{box-shadow:0 0 0 8px rgba(96,165,250,0)}}
@@ -327,15 +325,15 @@ nav{animation:slideDown 0.55s ease both}
   /* Nav */
   .nav-links{display:none}
   .nav-inner{height:62px}
-  .nav-logo{height:44px}
-  .nav-cta{padding:7px 13px;font-size:12px;white-space:nowrap}
+  .nav-logo{height:42px}
+  .nav-cta{padding:7px 11px;font-size:11.5px;white-space:nowrap;max-width:140px;overflow:hidden;text-overflow:ellipsis}
   #burger{display:flex}
 
   /* Hero */
-  .hero{padding:90px 5% 55px}
-  .hero h1{font-size:clamp(1.9rem,5.5vw,2.8rem)}
-  .hero-sub{font-size:0.95rem;margin:1.2rem auto 2rem}
-  .htag{font-size:11px;padding:5px 12px}
+  .hero{padding:85px 5% 50px}
+  .hero h1{font-size:clamp(1.85rem,5.5vw,2.8rem)}
+  .hero-sub{font-size:0.93rem;margin:1.1rem auto 1.8rem}
+  .htag{font-size:10.5px;padding:5px 11px}
 
   /* Layouts */
   .about-grid{grid-template-columns:1fr;gap:2rem}
@@ -344,7 +342,7 @@ nav{animation:slideDown 0.55s ease both}
   .svc-grid{grid-template-columns:1fr;gap:1.25rem}
 
   /* About photos */
-  .photo-grid{height:220px}
+  .photo-grid{height:210px}
 
   /* Grids */
   .val-grid{grid-template-columns:1fr 1fr}
@@ -356,46 +354,45 @@ nav{animation:slideDown 0.55s ease both}
   .why-grid{grid-template-columns:1fr}
 
   /* Calib image height */
-  .calib-img{height:280px}
+  .calib-img{height:260px}
 
   /* Section padding */
-  .sec{padding:3.5rem 5%}
-  .calib-sec{padding:3.5rem 5%}
-  .industries{padding:3.5rem 5%}
-  .partners{padding:3.5rem 5%}
-  .why{padding:3.5rem 5%}
-  .contact{padding:3.5rem 5%}
-  .process{padding:3.5rem 5%}
+  .sec,.calib-sec,.industries,.partners,.why,.contact,.process{padding:3.5rem 5%}
 
   /* Ticker */
-  .t-item{padding:0 24px}
-  .t-item img{height:28px}
+  .t-item{padding:0 22px;height:46px}
+  .t-item img{height:26px}
 
   /* Marquee */
-  .mq-item{padding:0 22px;font-size:11px}
+  .mq-item{padding:0 20px;font-size:10.5px}
 
   /* Stats */
   .s-num{font-size:2rem}
+  .s-label{font-size:11.5px}
+
+  /* Why cards */
+  .why-card{padding:1.4rem}
 }
 
 /* Large phones */
 @media(max-width:480px){
   /* Nav */
-  .nav-inner{height:56px}
-  .nav-logo{height:36px}
-  .nav-cta{padding:6px 10px;font-size:11px}
+  .nav-inner{height:54px}
+  .nav-logo{height:34px}
+  .nav-cta{padding:6px 9px;font-size:10.5px}
 
   /* Hero */
-  .hero{padding:80px 5% 45px}
-  .hero h1{font-size:clamp(1.6rem,7vw,2.1rem)}
-  .hero-sub{font-size:0.9rem}
-  .hero-btns{flex-direction:column;align-items:center;gap:0.75rem}
-  .btn-p,.btn-o{width:100%;max-width:280px;text-align:center;padding:12px 20px;font-size:14px}
-  .hero-tags{gap:6px}
-  .htag{font-size:10.5px;padding:5px 10px}
+  .hero{padding:76px 4% 42px}
+  .hero h1{font-size:clamp(1.55rem,7vw,2rem)}
+  .hero-sub{font-size:0.88rem;margin:1rem auto 1.6rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:0.7rem}
+  .btn-p,.btn-o{width:100%;max-width:280px;text-align:center;padding:12px 18px;font-size:13.5px}
+  .hero-tags{gap:5px;margin-top:1.8rem}
+  .htag{font-size:10px;padding:4px 9px}
+  .hero-badge{font-size:10.5px;padding:5px 13px}
 
   /* About photos — 2 col, hide 3rd */
-  .photo-grid{height:160px;grid-template-columns:1fr 1fr}
+  .photo-grid{height:150px;grid-template-columns:1fr 1fr}
   .photo-grid-item:nth-child(3){display:none}
 
   /* Values / team — single col */
@@ -407,46 +404,56 @@ nav{animation:slideDown 0.55s ease both}
 
   /* Partners — 2 col */
   .partners-grid{grid-template-columns:repeat(2,1fr)}
+  .p-cell{padding:16px 10px}
+  .p-cell img{max-height:34px;max-width:85px}
 
   /* Stats */
-  .stats-inner{grid-template-columns:1fr 1fr;gap:1rem}
-  .s-num{font-size:1.8rem}
-  .s-label{font-size:11px}
+  .stats-inner{grid-template-columns:1fr 1fr;gap:0.85rem}
+  .s-num{font-size:1.75rem}
+  .s-label{font-size:10.5px}
 
   /* Why cards */
   .why-grid{grid-template-columns:1fr}
-  .why-card{padding:1.25rem}
+  .why-card{padding:1.2rem;gap:0.85rem}
+  .why-icon{width:40px;height:40px;font-size:18px}
 
   /* Calib */
-  .calib-img{height:220px}
-  .calib-tags{gap:6px}
-  .c-tag{font-size:11px;padding:5px 12px}
+  .calib-img{height:200px}
+  .calib-tags{gap:5px}
+  .c-tag{font-size:10.5px;padding:5px 10px}
 
   /* Ticker */
-  .t-item{padding:0 18px;height:44px}
-  .t-item img{height:24px}
+  .t-item{padding:0 14px;height:40px}
+  .t-item img{height:22px;max-width:80px}
+  .ticker-wrap::before,.ticker-wrap::after{width:50px}
 
   /* Marquee */
-  .mq-item{padding:0 18px;font-size:10.5px}
+  .mq-item{padding:0 14px;font-size:10px;gap:7px}
 
   /* Contact */
-  .ct-grid{gap:2rem}
-  .rfq-btn{padding:11px 20px;font-size:13px}
+  .ct-grid{gap:1.75rem}
+  .rfq-field input,.rfq-field select,.rfq-field textarea{font-size:12.5px;padding:8px 11px}
+  .rfq-btn{padding:11px 18px;font-size:13px}
+  .tm-card{padding:11px}
 
   /* Section padding */
-  .sec{padding:3rem 5%}
-  .calib-sec,.industries,.partners,.why,.contact,.process{padding:3rem 5%}
+  .sec,.calib-sec,.industries,.partners,.why,.contact,.process{padding:2.75rem 4%}
 }
 
-/* Small phones */
+/* Very small phones */
 @media(max-width:360px){
   .nav-cta{display:none}
-  .nav-logo{height:32px}
-  .hero h1{font-size:1.45rem}
+  .nav-logo{height:30px}
+  .nav-inner{height:50px}
+  .hero h1{font-size:1.4rem}
+  .hero-sub{font-size:0.82rem}
   .partners-grid{grid-template-columns:1fr 1fr}
-  .stats-inner{grid-template-columns:1fr 1fr}
-  .btn-p,.btn-o{max-width:100%}
-  .s-num{font-size:1.6rem}
+  .stats-inner{grid-template-columns:1fr 1fr;gap:0.75rem}
+  .s-num{font-size:1.5rem}
+  .btn-p,.btn-o{max-width:100%;font-size:13px}
+  .sec,.calib-sec,.industries,.partners,.why,.contact,.process{padding:2.5rem 4%}
+  .why-card h4{font-size:13.5px}
+  .why-card p{font-size:12px}
 }
 </style>
 </head>
@@ -481,9 +488,10 @@ nav{animation:slideDown 0.55s ease both}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <video id="hero-vid" class="hero-video" autoplay muted playsinline preload="auto">
+    <source src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/herovideo1.mp4" type="video/mp4"/>
+  </video>
   <div class="hero-ov"></div>
-  <canvas id="hero-cv"></canvas>
   <div class="hero-body">
     <div class="hero-badge">Industrial · Trading · Construction</div>
     <h1>Powering Industry with<span class="tw-wrap"><span id="tw"></span><span class="tw-cursor"></span></span></h1>
@@ -897,79 +905,21 @@ nav{animation:slideDown 0.55s ease both}
     if (nav && !nav.contains(e.target)) closeNav();
   });
 
-  /* ── PERSPECTIVE GRID CANVAS ── */
+  /* ── VIDEO 15-SECOND LOOP ── */
   window.addEventListener('load', function() {
-    var cv = document.getElementById('hero-cv');
-    if (!cv) return;
-    var ctx = cv.getContext('2d');
-    var W, H, offset = 0;
-    var SPEED = 0.4;          // how fast the grid moves toward viewer
-    var COLS  = 14;           // number of vertical lines
-    var ROWS  = 10;           // number of horizontal lines
-    var HORIZON = 0.48;       // horizon position (0=top, 1=bottom)
-    var VFOV  = 0.72;         // vertical field of view spread
-    var COLOR = 'rgba(96,165,250,';
+    var vid = document.getElementById('hero-vid');
+    if (!vid) return;
+    var LOOP_DURATION = 15; // seconds
 
-    function size() {
-      W = cv.width  = cv.parentElement.offsetWidth;
-      H = cv.height = cv.parentElement.offsetHeight;
-    }
-    size();
-    window.addEventListener('resize', size, {passive: true});
-
-    function drawGrid() {
-      ctx.clearRect(0, 0, W, H);
-
-      var hy = H * HORIZON;   // horizon Y
-      var vanX = W / 2;       // vanishing point X (centre)
-
-      /* ── Horizontal lines (receding into distance) ── */
-      for (var r = 0; r <= ROWS; r++) {
-        // map row 0..ROWS into a perspective-spaced Y below horizon
-        var t = (r + (offset % 1)) / ROWS;
-        var ease = Math.pow(t, 2.2);          // perspective compression
-        var y = hy + (H * VFOV) * ease;
-        if (y > H * 1.02) continue;
-
-        // opacity: faint near horizon, stronger near viewer
-        var alpha = 0.04 + ease * 0.22;
-        ctx.beginPath();
-        ctx.strokeStyle = COLOR + alpha + ')';
-        ctx.lineWidth   = 0.7 + ease * 1.2;
-        ctx.moveTo(0, y);
-        ctx.lineTo(W, y);
-        ctx.stroke();
+    vid.addEventListener('timeupdate', function() {
+      if (vid.currentTime >= LOOP_DURATION) {
+        vid.currentTime = 0;
+        vid.play();
       }
+    });
 
-      /* ── Vertical lines radiating from vanishing point ── */
-      for (var c = 0; c <= COLS; c++) {
-        var xRatio = c / COLS;               // 0..1 across screen width
-        var xBottom = W * xRatio;            // where line hits bottom edge
-        var alpha2  = 0.06 + 0.14 * Math.sin(Math.PI * xRatio); // brighter in centre
-
-        ctx.beginPath();
-        ctx.strokeStyle = COLOR + alpha2 + ')';
-        ctx.lineWidth   = 0.6;
-        ctx.moveTo(vanX, hy);                // all lines start at vanishing pt
-        ctx.lineTo(xBottom, H);
-        ctx.stroke();
-      }
-
-      /* ── Subtle horizon glow ── */
-      var grad = ctx.createLinearGradient(0, hy - 12, 0, hy + 12);
-      grad.addColorStop(0, 'rgba(96,165,250,0)');
-      grad.addColorStop(0.5, 'rgba(96,165,250,0.12)');
-      grad.addColorStop(1, 'rgba(96,165,250,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, hy - 12, W, 24);
-    }
-
-    function loop() {
-      offset += SPEED * 0.016;   // advance grid toward viewer
-      drawGrid();
-      requestAnimationFrame(loop);
-    }
-    loop();
+    // Ensure video plays on mobile (some browsers need a nudge)
+    vid.play().catch(function() {});
   });
 
   /* ── TYPEWRITER ── */
