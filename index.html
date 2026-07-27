@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,11 @@ gtag('config','G-4LV8QRRP1M',{send_page_view:true,allow_google_signals:true});
 /* ============================
    RESET & BASE
    ============================ */
+:root{
+  /* Strong custom easings — the built-in CSS curves are too weak */
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#1a2332;overflow-x:hidden}
@@ -57,8 +63,9 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .nav-links{display:flex;gap:2rem;font-size:13.5px;color:#64748b}
 .nav-links a{transition:color 0.2s;font-weight:500}
 .nav-links a:hover{color:#1e3a8a}
-.nav-cta{background:#1e3a8a;color:#fff;padding:10px 22px;border-radius:7px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all 0.25s;white-space:nowrap}
+.nav-cta{background:#1e3a8a;color:#fff;padding:10px 22px;border-radius:7px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s ease,transform 0.2s var(--ease-out),box-shadow 0.2s var(--ease-out);white-space:nowrap}
 .nav-cta:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 4px 16px rgba(30,58,138,0.3)}
+.nav-cta:active{transform:scale(0.97);transition-duration:0.1s}
 .nav-right{display:flex;align-items:center;gap:12px}
 #burger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;width:32px;height:32px}
 #burger span{display:block;width:22px;height:2px;background:#1e3a8a;border-radius:2px;transition:all 0.3s}
@@ -70,8 +77,8 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
    HERO
    ============================ */
 .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.55)}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,46,0.45) 0%,rgba(8,18,46,0.62) 100%)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,46,0.62) 0%,rgba(8,18,46,0.78) 100%)}
 .hero-body{position:relative;z-index:2;max-width:860px;margin:0 auto;width:100%;padding:0 4px}
 .hero-badge{display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);color:#93c5fd;padding:6px 18px;border-radius:20px;font-size:11.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp 0.7s ease 0.15s both}
 .hero h1{font-size:clamp(2rem,5vw,3.8rem);font-weight:900;line-height:1.12;color:#fff;letter-spacing:-0.025em;animation:fadeUp 0.7s ease 0.35s both}
@@ -79,10 +86,12 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .tw-cursor{display:inline-block;width:3px;height:0.82em;background:#60a5fa;margin-left:3px;vertical-align:middle;animation:blink 0.75s step-end infinite}
 .hero-sub{font-size:1rem;color:#cbd5e1;max-width:560px;margin:1.5rem auto 2.5rem;line-height:1.8;animation:fadeUp 0.7s ease 0.55s both}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.7s both}
-.btn-p{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:#fff;padding:13px 30px;border-radius:7px;font-size:14.5px;font-weight:700;border:none;cursor:pointer;transition:all 0.25s}
+.btn-p{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:#fff;padding:13px 30px;border-radius:7px;font-size:14.5px;font-weight:700;border:none;cursor:pointer;transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out)}
 .btn-p:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(29,78,216,0.45)}
-.btn-o{background:transparent;color:#fff;padding:13px 30px;border-radius:7px;font-size:14.5px;font-weight:600;border:1.5px solid rgba(255,255,255,0.45);cursor:pointer;transition:all 0.25s}
+.btn-p:active{transform:scale(0.97);transition-duration:0.1s}
+.btn-o{background:transparent;color:#fff;padding:13px 30px;border-radius:7px;font-size:14.5px;font-weight:600;border:1.5px solid rgba(255,255,255,0.45);cursor:pointer;transition:transform 0.25s var(--ease-out),border-color 0.2s ease,background 0.2s ease}
 .btn-o:hover{border-color:#fff;background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+.btn-o:active{transform:scale(0.97);transition-duration:0.1s}
 .hero-tags{margin-top:2.8rem;display:flex;gap:9px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.85s both}
 .htag{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.17);padding:6px 14px;border-radius:20px;font-size:11.5px;color:#cbd5e1}
 
@@ -151,17 +160,32 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .mv-card p{font-size:12.5px;color:#475569;line-height:1.65}
 .about-right{display:flex;flex-direction:column}
 .val-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
-.val-card{background:#f8fafc;border:1px solid #e2e8f0;border-top:3px solid #1e3a8a;border-radius:8px;padding:18px;display:flex;flex-direction:column;justify-content:center;transition:all 0.25s}
+.val-card{background:#f8fafc;border:1px solid #e2e8f0;border-top:3px solid #1e3a8a;border-radius:8px;padding:18px;display:flex;flex-direction:column;justify-content:center;transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out),border-top-color 0.25s ease}
 .val-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(30,58,138,0.1);border-top-color:#3b82f6}
 .val-card h4{font-size:14.5px;font-weight:700;color:#0f1e3c;margin-bottom:5px}
 .val-card p{font-size:12.5px;color:#64748b;line-height:1.5}
+
+/* ============================
+   PCAB ACCREDITATION
+   ============================ */
+.accred-card{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#f8fafc,#eef4ff);border:1px solid #dbe4f3;border-left:3px solid #1e3a8a;border-radius:10px;padding:14px 17px;transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out),border-left-color 0.25s ease}
+.accred-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(30,58,138,0.12);border-left-color:#3b82f6}
+.accred-seal{flex:none;width:46px;height:46px}
+.accred-body{display:flex;flex-direction:column;gap:1px;min-width:0}
+.accred-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:0.11em;text-transform:uppercase;color:#1e3a8a}
+.accred-title{font-size:14.5px;font-weight:800;color:#0f1e3c;line-height:1.25}
+.accred-meta{font-size:11.5px;color:#64748b;line-height:1.45;margin-top:1px}
+.accred-lic{display:inline-flex;align-items:baseline;gap:6px;margin-top:4px;font-size:11px;color:#475569;text-transform:uppercase;letter-spacing:0.04em;font-weight:600}
+.accred-lic strong{font-size:13.5px;font-weight:800;color:#1d4ed8;letter-spacing:0.02em}
+.htag-cert{background:rgba(96,165,250,0.16);border-color:rgba(96,165,250,0.5);color:#dbeafe;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.htag-cert svg{width:12px;height:12px;flex:none}
 
 /* ============================
    SERVICES
    ============================ */
 .services{background:#f1f5f9}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.svc-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.05);transition:all 0.3s}
+.svc-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.05);transition:transform 0.3s var(--ease-out),box-shadow 0.3s var(--ease-out)}
 .svc-card:hover{box-shadow:0 10px 36px rgba(30,58,138,0.14);transform:translateY(-4px)}
 .svc-img{height:210px;overflow:hidden;background:#e2e8f0}
 .svc-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
@@ -176,7 +200,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
    ============================ */
 .products{background:#fff}
 .prod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
-.prod-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1.2rem;transition:all 0.25s}
+.prod-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1.2rem;transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out),border-color 0.25s ease}
 .prod-card:hover{border-color:#1e3a8a;transform:translateY(-4px);box-shadow:0 8px 24px rgba(30,58,138,0.1)}
 .prod-card h4{font-size:12.5px;font-weight:700;color:#0f1e3c;margin-bottom:10px}
 .prod-list{list-style:none}
@@ -193,7 +217,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .calib-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
 .calib-img:hover img{transform:scale(1.04)}
 .calib-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
-.c-tag{background:#eff6ff;border:1px solid #bfdbfe;padding:7px 15px;border-radius:6px;font-size:12px;color:#1e40af;font-weight:600;transition:all 0.2s;cursor:default}
+.c-tag{background:#eff6ff;border:1px solid #bfdbfe;padding:7px 15px;border-radius:6px;font-size:12px;color:#1e40af;font-weight:600;transition:transform 0.2s var(--ease-out),background 0.2s ease;cursor:default}
 .c-tag:hover{background:#dbeafe;transform:translateY(-2px)}
 
 /* ============================
@@ -201,7 +225,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
    ============================ */
 .industries{background:#fff;padding:5rem 5%}
 .pill-wrap{display:flex;flex-wrap:wrap;gap:9px;margin-top:2rem}
-.pill{background:#fff;border:1px solid #e2e8f0;padding:8px 17px;border-radius:20px;font-size:12.5px;color:#475569;cursor:default;box-shadow:0 1px 3px rgba(0,0,0,0.05);transition:all 0.2s}
+.pill{background:#fff;border:1px solid #e2e8f0;padding:8px 17px;border-radius:20px;font-size:12.5px;color:#475569;cursor:default;box-shadow:0 1px 3px rgba(0,0,0,0.05);transition:transform 0.2s var(--ease-out),border-color 0.2s ease,color 0.2s ease,background 0.2s ease}
 .pill:hover{border-color:#1e3a8a;color:#1e3a8a;background:#eff6ff;transform:translateY(-2px)}
 
 /* ============================
@@ -223,7 +247,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .why .sec-title{color:#fff}
 .why .sec-sub{color:#94a3b8}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;position:relative;z-index:1}
-.why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.75rem;display:flex;gap:1rem;align-items:flex-start;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all 0.3s}
+.why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.75rem;display:flex;gap:1rem;align-items:flex-start;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform 0.3s var(--ease-out),box-shadow 0.3s var(--ease-out),background 0.3s ease,border-color 0.3s ease}
 .why-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(96,165,250,0.38);transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,0.28)}
 .why-icon{width:46px;height:46px;background:linear-gradient(135deg,rgba(59,130,246,0.28),rgba(29,78,216,0.18));border:1px solid rgba(96,165,250,0.28);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:21px}
 .why-card h4{font-size:14.5px;font-weight:700;margin-bottom:5px;color:#fff}
@@ -263,8 +287,9 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .rfq-attach-note{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.28);border-radius:8px;padding:11px 14px}
 .rfq-attach-note p{font-size:12px;color:#bfdbfe;line-height:1.7;margin:0}
 .rfq-attach-note a{color:#60a5fa;font-weight:600}
-.rfq-btn{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:12px 26px;border-radius:7px;font-size:13.5px;font-weight:700;border:none;cursor:pointer;transition:all 0.25s;margin-top:2px;width:100%}
+.rfq-btn{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:12px 26px;border-radius:7px;font-size:13.5px;font-weight:700;border:none;cursor:pointer;transition:background 0.25s ease,transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out);margin-top:2px;width:100%}
 .rfq-btn:hover{background:linear-gradient(135deg,#2563eb,#3b82f6);transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,78,216,0.4)}
+.rfq-btn:active{transform:scale(0.98);transition-duration:0.1s}
 .rfq-ok{display:none;background:rgba(34,197,94,0.14);border:1px solid rgba(34,197,94,0.38);border-radius:8px;padding:13px 16px;color:#86efac;font-size:13px;text-align:center;margin-top:6px}
 
 /* ============================
@@ -289,13 +314,13 @@ nav{animation:slideDown 0.55s ease both}
 /* ============================
    SCROLL REVEAL
    ============================ */
-.rv{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.rv{opacity:0;transform:translateY(30px);transition:opacity 0.6s var(--ease-out),transform 0.6s var(--ease-out)}
 .rv.on{opacity:1;transform:none}
-.rl{opacity:0;transform:translateX(-34px);transition:opacity 0.6s ease,transform 0.6s ease}
+.rl{opacity:0;transform:translateX(-34px);transition:opacity 0.6s var(--ease-out),transform 0.6s var(--ease-out)}
 .rl.on{opacity:1;transform:none}
-.rr{opacity:0;transform:translateX(34px);transition:opacity 0.6s ease,transform 0.6s ease}
+.rr{opacity:0;transform:translateX(34px);transition:opacity 0.6s var(--ease-out),transform 0.6s var(--ease-out)}
 .rr.on{opacity:1;transform:none}
-.stag>*{opacity:0;transform:translateY(20px);transition:opacity 0.48s ease,transform 0.48s ease}
+.stag>*{opacity:0;transform:translateY(20px);transition:opacity 0.48s var(--ease-out),transform 0.48s var(--ease-out)}
 .stag.on>*:nth-child(1){opacity:1;transform:none;transition-delay:0.05s}
 .stag.on>*:nth-child(2){opacity:1;transform:none;transition-delay:0.14s}
 .stag.on>*:nth-child(3){opacity:1;transform:none;transition-delay:0.23s}
@@ -461,6 +486,34 @@ nav{animation:slideDown 0.55s ease both}
   .why-card h4{font-size:13.5px}
   .why-card p{font-size:12px}
 }
+
+/* ============================
+   TOUCH DEVICES — kill sticky hover lifts
+   Tapping a card on a touchscreen fires :hover and leaves it
+   stuck in the raised state. Neutralize movement where there's
+   no real pointer; color/background feedback still applies.
+   ============================ */
+@media(hover:none){
+  .svc-card:hover,.val-card:hover,.prod-card:hover,.why-card:hover,
+  .pill:hover,.c-tag:hover,.btn-p:hover,.btn-o:hover,.nav-cta:hover,
+  .rfq-btn:hover,.t-item:hover img,.p-cell:hover img,
+  .photo-grid-item:hover img,.svc-card:hover .svc-img img,
+  .calib-img:hover img{transform:none}
+}
+
+/* ============================
+   REDUCED MOTION — respect the OS setting everywhere
+   Keep opacity/color transitions that aid comprehension;
+   remove looping and position-based motion.
+   ============================ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto}
+  .t-track,.mq-track{animation:none}
+  .nav-cta{animation:none}
+  .tw-cursor{animation:none}
+  .rv,.rl,.rr,.stag>*,.pill-wrap .pill{opacity:1!important;transform:none!important;transition:opacity 0.2s ease!important}
+}
 </style>
 <style id="tycus-logo-style">
 /* ============================
@@ -586,7 +639,9 @@ nav{animation:slideDown 0.55s ease both}
 
 <!-- HERO -->
 <section class="hero">
-  <video id="hero-vid" class="hero-video" autoplay muted playsinline preload="auto">
+  <video id="hero-vid" class="hero-video" autoplay muted playsinline preload="auto"
+         poster="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/hero-poster.jpg"
+         disablepictureinpicture disableremoteplayback>
     <source src="https://raw.githubusercontent.com/cristycussolutions/tycus-assets/main/herovideo1.mp4" type="video/mp4"/>
   </video>
   <div class="hero-ov"></div>
@@ -599,6 +654,7 @@ nav{animation:slideDown 0.55s ease both}
       <button class="btn-o" onclick="document.getElementById('rfqForm').scrollIntoView({behavior:'smooth'})">Get Your Quotation</button>
     </div>
     <div class="hero-tags">
+      <span class="htag htag-cert"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#60a5fa"/><path d="M8 12.3l2.6 2.6L16 9.5" stroke="#0d1b3e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>PCAB Licensed · Lic. No. 61502</span>
       <span class="htag">ISO/IEC 17025 Calibration Partners</span>
       <span class="htag">Solar Energy Solutions</span>
       <span class="htag">Industrial Supplies</span>
@@ -670,6 +726,19 @@ nav{animation:slideDown 0.55s ease both}
         <div class="mv-wrap">
           <div class="mv-card"><h4>Our Mission</h4><p>To deliver quality-driven industrial supplies, calibration services, and construction solutions that meet the evolving needs of our clients — building long-term partnerships through trust, reliability, and exceptional service.</p></div>
           <div class="mv-card"><h4>Our Vision</h4><p>To become a trusted and leading provider of integrated industrial and construction solutions, recognized for innovation, excellence, and customer satisfaction.</p></div>
+        </div>
+        <div class="accred-card">
+          <svg class="accred-seal" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="21" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+            <circle cx="24" cy="24" r="15.5" fill="none" stroke="#93c5fd" stroke-width="1.3" stroke-dasharray="2 3"/>
+            <path d="M16.8 24.3l4.7 4.7L31.4 19" stroke="#16a34a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="accred-body">
+            <div class="accred-eyebrow">Government Accredited</div>
+            <div class="accred-title">PCAB Licensed Contractor</div>
+            <div class="accred-meta">Regular License · Specialty Contractor · Issued to TYCUS Enterprises Corporation</div>
+            <div class="accred-lic"><span>License No.</span><strong>61502</strong></div>
+          </div>
         </div>
       </div>
       <div class="about-right rr">
@@ -977,7 +1046,8 @@ nav{animation:slideDown 0.55s ease both}
 </section>
 
 <footer>
-  <p>© 2026 <span>TYCUS Solutions</span> · TYCUS Enterprises Corporation · All Rights Reserved · Balayan, Batangas, Philippines</p>
+  <p><span>PCAB Licensed Contractor</span> · Regular License No. 61502 · Specialty Contractor</p>
+  <p style="margin-top:6px">© 2026 <span>TYCUS Solutions</span> · TYCUS Enterprises Corporation · All Rights Reserved · Balayan, Batangas, Philippines</p>
 </footer>
 
 <script>
@@ -1008,8 +1078,17 @@ nav{animation:slideDown 0.55s ease both}
   window.addEventListener('load', function() {
     var vid = document.getElementById('hero-vid');
     if (!vid) return;
-    var LOOP_DURATION = 15; // seconds
 
+    // Respect reduced-motion / data-saver: hold the first frame, no loop, no decode churn.
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduce || saveData) {
+      vid.removeAttribute('autoplay');
+      vid.pause();
+      return;
+    }
+
+    var LOOP_DURATION = 15; // seconds
     vid.addEventListener('timeupdate', function() {
       if (vid.currentTime >= LOOP_DURATION) {
         vid.currentTime = 0;
