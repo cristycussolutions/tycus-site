@@ -200,7 +200,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
    PRODUCTS
    ============================ */
 .products{background:#fff}
-.prod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .prod-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1.2rem;transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out),border-color 0.25s ease}
 .prod-card:hover{border-color:#1e3a8a;transform:translateY(-4px);box-shadow:0 8px 24px rgba(30,58,138,0.1)}
 .prod-card h4{font-size:12.5px;font-weight:700;color:#0f1e3c;margin-bottom:10px}
@@ -208,6 +208,23 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:500;background:#fff;border-bot
 .prod-list li{font-size:11.5px;color:#64748b;padding:5px 0;border-bottom:1px solid #e8edf3;display:flex;align-items:flex-start;gap:7px;line-height:1.4}
 .prod-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:#1e3a8a;flex-shrink:0;margin-top:5px}
 .prod-list li:last-child{border-bottom:none}
+/* ============================
+   PRODUCT CATALOG (full)
+   ============================ */
+.catalog{display:grid;gap:1.25rem;margin-top:0.5rem}
+.cat-panel{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.05);transition:box-shadow 0.3s var(--ease-out)}
+.cat-panel:hover{box-shadow:0 8px 26px rgba(30,58,138,0.10)}
+.cat-head{display:flex;align-items:center;gap:11px;background:linear-gradient(135deg,#1e3a8a,#1d4ed8);padding:12px 18px}
+.cat-head .ci{font-size:20px;line-height:1}
+.cat-head h3{font-size:13.5px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:#fff;margin:0}
+.cat-body{padding:14px 18px 16px}
+.cat-sub{font-size:11px;font-weight:700;color:#1e3a8a;text-transform:uppercase;letter-spacing:0.06em;margin:14px 0 7px;padding-bottom:5px;border-bottom:1px solid #e8edf3}
+.cat-sub:first-child{margin-top:0}
+.cat-list{list-style:none;columns:3;column-gap:26px;margin:0}
+.cat-list li{font-size:12px;color:#475569;padding:3px 0;display:flex;gap:7px;break-inside:avoid;line-height:1.4}
+.cat-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:#3b82f6;flex-shrink:0;margin-top:6px}
+@media(max-width:900px){.cat-list{columns:2}}
+@media(max-width:560px){.cat-list{columns:1}}
 
 /* ============================
    CALIBRATION
@@ -835,55 +852,223 @@ nav{animation:slideDown 0.55s ease both}
   <div class="sec-in">
     <div class="sec-label">Industrial Supplies</div>
     <h2 class="sec-title">Product Categories</h2>
-    <p class="sec-sub">A comprehensive range of industrial products across five major categories, backed by global supplier partnerships.</p>
-    <div class="prod-grid stag">
-      <div class="prod-card">
-        <h4>⚡ Process &amp; Field Instruments</h4>
-        <ul class="prod-list">
-          <li>Pressure Control &amp; Measurement</li>
-          <li>Temperature Measurement</li>
-          <li>Level Measurement</li>
-          <li>Flow Control &amp; Measurement</li>
-          <li>Valves, Actuators, Positioners</li>
-        </ul>
+    <p class="sec-sub">Our full, diversified product catalog across six major categories &mdash; backed by global supplier partnerships.</p>
+    <div class="catalog stag">
+      <div class="cat-panel">
+        <div class="cat-head"><span class="ci">🎛️</span><h3>Process &amp; Field Instrumentation</h3></div>
+        <div class="cat-body">
+          <div class="cat-sub">Flow Instruments</div>
+          <ul class="cat-list">
+            <li>Electromagnetic flowmeter</li>
+            <li>Coriolis mass flowmeter</li>
+            <li>Ultrasonic flowmeter</li>
+            <li>Vortex flowmeter</li>
+            <li>Turbine flowmeter</li>
+            <li>Positive displacement flowmeter</li>
+            <li>Thermal mass flowmeter</li>
+            <li>Variable-area flowmeter (rotameter)</li>
+            <li>Differential-pressure flowmeter</li>
+            <li>Orifice plate</li>
+            <li>Flow indicator</li>
+            <li>Flow transmitter</li>
+            <li>Totalizer / batch controller</li>
+          </ul>
+          <div class="cat-sub">Pressure Instruments</div>
+          <ul class="cat-list">
+            <li>Pressure gauge</li>
+            <li>Vacuum gauge</li>
+            <li>Compound pressure gauge</li>
+            <li>Differential-pressure gauge</li>
+            <li>Pressure transmitter</li>
+            <li>Differential-pressure transmitter</li>
+            <li>Absolute-pressure transmitter</li>
+            <li>Pressure switch</li>
+            <li>Vacuum switch</li>
+            <li>Pressure indicator</li>
+          </ul>
+          <div class="cat-sub">Temperature Instruments</div>
+          <ul class="cat-list">
+            <li>Thermocouple</li>
+            <li>Resistance temperature detector (RTD)</li>
+            <li>Thermistor</li>
+            <li>Temperature transmitter</li>
+            <li>Temperature switch</li>
+            <li>Bimetallic thermometer</li>
+            <li>Filled-system thermometer</li>
+            <li>Infrared thermometer</li>
+            <li>Thermal imaging camera</li>
+            <li>Temperature gauge</li>
+            <li>Temperature indicator</li>
+            <li>Temperature controller</li>
+            <li>Temperature data logger</li>
+            <li>Thermowell</li>
+          </ul>
+          <div class="cat-sub">Level Instruments</div>
+          <ul class="cat-list">
+            <li>Radar level transmitter</li>
+            <li>Guided-wave radar level transmitter</li>
+            <li>Ultrasonic level transmitter</li>
+            <li>Differential-pressure level transmitter</li>
+            <li>Hydrostatic level transmitter</li>
+            <li>Capacitance level transmitter</li>
+            <li>Magnetostrictive level transmitter</li>
+            <li>Float-type level transmitter</li>
+            <li>Magnetic level gauge</li>
+            <li>Sight-glass level indicator</li>
+            <li>Level switch</li>
+            <li>Float switch</li>
+          </ul>
+          <div class="cat-sub">Analytical Instruments</div>
+          <ul class="cat-list">
+            <li>pH analyzer</li>
+            <li>Oxidation-reduction potential (ORP) analyzer</li>
+            <li>Conductivity analyzer</li>
+            <li>Resistivity analyzer</li>
+            <li>Dissolved-oxygen analyzer</li>
+            <li>Turbidity analyzer</li>
+            <li>Chlorine analyzer</li>
+            <li>Total dissolved solids meter</li>
+            <li>Salinity meter</li>
+            <li>Moisture analyzer</li>
+            <li>Density meter</li>
+            <li>Refractometer</li>
+            <li>Viscosity meter</li>
+            <li>Gas analyzer</li>
+            <li>Oxygen analyzer</li>
+            <li>Carbon dioxide analyzer</li>
+            <li>Oil-in-water analyzer</li>
+            <li>Particle counter</li>
+            <li>Chromatograph</li>
+            <li>Spectrophotometer</li>
+          </ul>
+          <div class="cat-sub">Control Valves &amp; Final Control Elements</div>
+          <ul class="cat-list">
+            <li>Globe control valve</li>
+            <li>Ball control valve</li>
+            <li>Butterfly control valve</li>
+            <li>Diaphragm control valve</li>
+            <li>Angle control valve</li>
+            <li>Pressure-reducing valve</li>
+            <li>Back-pressure regulator</li>
+            <li>Solenoid valve</li>
+            <li>Pneumatic actuator</li>
+            <li>Electric actuator</li>
+            <li>Hydraulic actuator</li>
+            <li>Valve positioner</li>
+            <li>Electro-pneumatic positioner</li>
+            <li>Variable-frequency drive</li>
+          </ul>
+        </div>
       </div>
-      <div class="prod-card">
-        <h4>🔌 Electrical Products</h4>
-        <ul class="prod-list">
-          <li>Controllers &amp; Automation Devices</li>
-          <li>Industrial Motors</li>
-          <li>Power Converters</li>
-          <li>Generator Sets</li>
-          <li>Switch Gears</li>
-        </ul>
+      <div class="cat-panel">
+        <div class="cat-head"><span class="ci">⚙️</span><h3>Industrial Automation</h3></div>
+        <div class="cat-body">
+          <div class="cat-sub">Process Controllers &amp; Indicators</div>
+          <ul class="cat-list">
+            <li>PID controller</li>
+            <li>Temperature controller</li>
+            <li>Pressure controller</li>
+            <li>Flow controller</li>
+            <li>Level controller</li>
+            <li>Ratio controller</li>
+            <li>Batch controller</li>
+            <li>Paperless recorder</li>
+            <li>Chart recorder</li>
+            <li>Data logger</li>
+            <li>Signal isolator</li>
+            <li>Signal converter</li>
+            <li>Loop-powered indicator</li>
+            <li>Alarm annunciator</li>
+            <li>Totalizer</li>
+          </ul>
+          <div class="cat-sub">Industrial Automation Instruments</div>
+          <ul class="cat-list">
+            <li>Programmable logic controller (PLC)</li>
+            <li>Distributed control system (DCS)</li>
+            <li>Supervisory control &amp; data acquisition (SCADA)</li>
+            <li>Human-machine interface (HMI)</li>
+            <li>Remote terminal unit (RTU)</li>
+            <li>Input / output modules</li>
+          </ul>
+        </div>
       </div>
-      <div class="prod-card">
-        <h4>❄️ Refrigeration &amp; Compressor</h4>
-        <ul class="prod-list">
-          <li>Air Compressor</li>
-          <li>Gas Compressor</li>
-          <li>A.C. &amp; Refrigeration</li>
-          <li>Accessories</li>
-          <li>Hardware Materials</li>
-        </ul>
+      <div class="cat-panel">
+        <div class="cat-head"><span class="ci">🔌</span><h3>Industrial Electrical Products</h3></div>
+        <div class="cat-body">
+          <ul class="cat-list">
+            <li>Electrical components</li>
+            <li>Power monitoring devices</li>
+            <li>Protection equipment</li>
+            <li>Switchgears &amp; distribution panels</li>
+            <li>Circuit breakers, contactors, relays &amp; overload protection</li>
+            <li>Industrial motors &amp; power converters</li>
+            <li>Transformers, power supplies &amp; UPS</li>
+            <li>Generator sets</li>
+          </ul>
+        </div>
       </div>
-      <div class="prod-card">
-        <h4>🧪 Calibrators &amp; Lab Equipment</h4>
-        <ul class="prod-list">
-          <li>Dry Block &amp; Temperature Bath</li>
-          <li>Pressure Pumps &amp; Test Gauge</li>
-          <li>Multi-Function Calibrator</li>
-          <li>Autoclave</li>
-          <li>Incubator and Oven</li>
-        </ul>
+      <div class="cat-panel">
+        <div class="cat-head"><span class="ci">🔧</span><h3>Mechanical Devices &amp; Equipment</h3></div>
+        <div class="cat-body">
+          <ul class="cat-list">
+            <li>Pumps &amp; motors</li>
+            <li>Industrial valves, actuators &amp; positioners</li>
+            <li>Air dryers, filters, receivers &amp; compressor spare parts</li>
+            <li>Ammonia compressors &amp; their spare parts</li>
+            <li>Couplings, shafts, bearings, belts, chains, pulleys &amp; sprockets</li>
+            <li>Fabricated mechanical parts, machine components &amp; maintenance spares</li>
+            <li>Heat exchangers &amp; industrial heaters (tubular, cartridge, immersion)</li>
+          </ul>
+        </div>
       </div>
-      <div class="prod-card">
-        <h4>🔥 Industrial Heaters</h4>
-        <ul class="prod-list">
-          <li>Tubular Heater</li>
-          <li>Cartridge Heater</li>
-          <li>Immersion Heater</li>
-        </ul>
+      <div class="cat-panel">
+        <div class="cat-head"><span class="ci">📏</span><h3>Calibrators &amp; Calibration Equipment</h3></div>
+        <div class="cat-body">
+          <ul class="cat-list">
+            <li>Dry-block temperature calibrators</li>
+            <li>Liquid temperature baths &amp; calibration baths</li>
+            <li>Multifunction process calibrators</li>
+            <li>Temperature simulators for thermocouples &amp; RTDs</li>
+            <li>Pressure calibrators &amp; digital test gauges</li>
+            <li>Pneumatic &amp; hydraulic pressure pumps</li>
+            <li>Deadweight testers</li>
+            <li>Current &amp; voltage loop calibrators</li>
+            <li>Electrical multifunction calibrators</li>
+            <li>Documenting calibrators</li>
+            <li>Process signal analyzers</li>
+            <li>HART communicators &amp; field communicators</li>
+            <li>Reference thermometers &amp; pressure standards</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cat-panel">
+        <div class="cat-head"><span class="ci">🔬</span><h3>Scientific Laboratory Equipment</h3></div>
+        <div class="cat-body">
+          <ul class="cat-list">
+            <li>Analytical, precision &amp; top-loading balances</li>
+            <li>Moisture analyzers</li>
+            <li>Autoclaves &amp; laboratory sterilizers</li>
+            <li>Incubators &amp; environmental chambers</li>
+            <li>Drying ovens &amp; vacuum ovens</li>
+            <li>Muffle furnaces</li>
+            <li>Laboratory refrigerators &amp; freezers</li>
+            <li>Water baths &amp; heating baths</li>
+            <li>Hot plates &amp; magnetic stirrers</li>
+            <li>Orbital &amp; reciprocating shakers</li>
+            <li>Centrifuges</li>
+            <li>Spectrophotometers &amp; colorimeters</li>
+            <li>pH, conductivity, TDS &amp; dissolved-oxygen meters</li>
+            <li>Turbidity meters &amp; multiparameter water analyzers</li>
+            <li>Microscopes</li>
+            <li>Micropipettes &amp; electronic pipettors</li>
+            <li>Digital burettes &amp; bottle-top dispensers</li>
+            <li>Laboratory mills, grinders &amp; sieve shakers</li>
+            <li>Vacuum pumps, desiccators &amp; filtration systems</li>
+            <li>Fume hoods &amp; biological safety cabinets</li>
+            <li>Laboratory water-purification systems</li>
+            <li>Glassware, laboratory consumables &amp; accessories</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
