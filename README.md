@@ -2,12 +2,26 @@
 
 The website for **tycussolutions.com** (TYCUS Enterprises Corporation, operating as TYCUS Solutions). Everything in this repo is published on the site, so a file at `assets/docs/X.pdf` is live at `https://tycussolutions.com/assets/docs/X.pdf`.
 
+## Pages
+
+| Page | File | Live address |
+|---|---|---|
+| Industrial heaters & instruments (home) | `index.html` | https://tycussolutions.com/ |
+| Biomedical & PT (dialysis water & machine care, physical therapy equipment) | `biomedical/index.html` | https://tycussolutions.com/biomedical/ |
+
+The switch at the top of both pages links them. Both quote forms send through the same Formspree form (`assets/site-config.js`). Biomedical & PT enquiries have "Biomedical & PT" in the email subject.
+
+Deep links used by the emails: `/biomedical/?need=assessment#contact` (free RO assessment) and `/biomedical/?need=pt#contact` (PT equipment quote).
+
+Speed rule for the Biomedical & PT page: looping animations must only use `transform`/`opacity` and must pause off screen (the page adds a `paused` class). Check on https://pagespeed.web.dev after every change; aim for 90+ on mobile.
+
 ## Folder map
 
 | Folder | What's in it |
 |---|---|
 | `index.html`, `404.html` | The website pages |
 | `assets/img/` | Website images (product photos, team photos, icons) |
+| `assets/img/biomed/` | Photos for the Biomedical & PT page |
 | `assets/img/brands/` | Brand logos shown on the website |
 | `assets/img/email/` | Images used inside outreach emails (see below) |
 | `assets/docs/` | PDFs linked from the site and from emails |
