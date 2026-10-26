@@ -1502,6 +1502,16 @@ header.site{background:var(--surface)}
 @media (max-width:400px){.hero .eyebrow{font-size:9.5px;letter-spacing:.06em}}
 @media (max-width:760px) and (max-height:700px) and (max-aspect-ratio:1/1){.hero-photo .hero-bg{aspect-ratio:16/10;object-position:50% 45%}}
 .hero-pic{display:contents}
+/* instruments: six product tiles, then "Can't find a model?" as a full-width banner */
+@media (min-width:561px){.pline-more{grid-column:1/-1}}
+@media (min-width:601px){
+  .pline-more{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:8px 28px;padding:0;align-content:center}
+  .pline-more .pline-img{grid-row:1/4;margin:0;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--navy-line);min-height:200px;height:100%}
+  .pline-more>h3,.pline-more>p,.pline-more>.btn{grid-column:2;margin:0 28px 0 0}
+  .pline-more>h3{margin-top:28px;font-size:clamp(19px,2vw,22px)}
+  .pline-more>p{max-width:60ch;font-size:15px}
+  .pline-more>.btn{margin:6px 0 28px;align-self:start;justify-self:start;width:auto}
+}
 /* phones: free tools as one tidy row, credentials tighter */
 @media (max-width:560px){
   .tool-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px}
@@ -1701,7 +1711,7 @@ header.site{background:var(--surface)}
         <span class="eyebrow">About TYCUS</span>
         <h2 id="abTitle">One supplier for the whole heating loop.</h2>
         <div class="stats about-stats">
-          <div class="stat"><b>17</b><span>Brands we supply</span></div>
+          <div class="stat"><b>18</b><span>Brands we supply</span></div>
           <div class="stat"><b>7</b><span>Core industries</span></div>
           <div class="stat"><b>100%</b><span>Requests quoted</span></div>
         </div>
@@ -1709,7 +1719,7 @@ header.site{background:var(--surface)}
       <div class="about-copy">
         <p>TYCUS Solutions is based in Balayan, Batangas and supplies plants across the Philippines, from food lines to power stations.</p>
         <p>A heater is only as good as its sizing, its sheath and the sensor controlling it. Buy the heater, the sensor and the instruments from us, and one engineer owns the whole spec, from the first drawing to the last spare.</p>
-        <div class="about-dl"><button class="btn btn-line" type="button" data-tool="profile"><svg aria-hidden="true"><use href="#i-download"/></svg>Get the company profile</button><span>Free PDF · 15 pages · every product we make, in one place</span></div>
+        <div class="about-dl"><button class="btn btn-line" type="button" data-tool="profile"><svg aria-hidden="true"><use href="#i-download"/></svg>Get the company profile</button><span>Free PDF · 16 pages · every product we make, in one place</span></div>
       </div>
     </div>
   </div>
@@ -1878,8 +1888,8 @@ header.site{background:var(--surface)}
   <div class="wrap">
     <div class="s-head wide">
       <span class="eyebrow">Process instruments</span>
-      <h2 id="prodTitle">Meters, switches and lab gear, sourced for you.</h2>
-      <p class="lede">Yokogawa, Endress+Hauser, ABB, Siemens and 13 more brands. Tell us the application and the budget, and we'll pick the right model.</p>
+      <h2 id="prodTitle">Meters, valves, switches and lab gear, sourced for you.</h2>
+      <p class="lede">Yokogawa, Endress+Hauser, ABB, Siemens and 14 more brands. Tell us the application and the budget, and we'll pick the right model.</p>
     </div>
     <div class="pgrid" id="pgrid"></div>
     <h3 class="inds-h">Industries we serve</h3>
@@ -2322,7 +2332,7 @@ function say(msg) { const t = $('#toast'); t.textContent = msg; t.hidden = false
 const icon = (id, cls = '') => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
 
 /* ================= data ================= */
-const BRANDS = [['yokogawa', 'Yokogawa', 30], ['rosemount', 'Rosemount', 30], ['endress-hauser', 'Endress+Hauser', 30], ['abb', 'ABB', 30], ['siemens', 'Siemens', 30], ['shneiderelectric', 'Schneider Electric', 30], ['danfoss', 'Danfoss', 30], ['uec', 'United Electric Controls', 36], ['flowt', 'Flowt', 36], ['skyray', 'Skyray Instrument', 42], ['drawell', 'Drawell', 30], ['baite', 'Baite', 36], ['xinquan', 'Xinquan', 42], ['sunoce', 'Sunoce', 42], ['wtsensor', 'WTsensor', 30], ['sdwm', 'SDWM Fluid Technology', 36], ['znc', 'ZNC', 42]];
+const BRANDS = [['yokogawa', 'Yokogawa', 30], ['rosemount', 'Rosemount', 30], ['endress-hauser', 'Endress+Hauser', 30], ['abb', 'ABB', 30], ['siemens', 'Siemens', 30], ['shneiderelectric', 'Schneider Electric', 30], ['danfoss', 'Danfoss', 30], ['uec', 'United Electric Controls', 36], ['flowt', 'Flowt', 36], ['skyray', 'Skyray Instrument', 42], ['drawell', 'Drawell', 30], ['baite', 'Baite', 36], ['xinquan', 'Xinquan', 42], ['sunoce', 'Sunoce', 42], ['wtsensor', 'WTsensor', 30], ['sdwm', 'SDWM Fluid Technology', 36], ['znc', 'ZNC', 42], ['thinktank', 'Thinktank', 32]];
 const PEOPLE = {
   levi: { name: 'Levi Obligacion', role: 'Sales & Application Engineer', phone: '+63 968 147 0710', email: 'sales.tycus@gmail.com', handles: ['Custom heaters', 'Meters & instruments', 'Electrical'] },
   cris: { name: 'Cris Akol', role: 'Sales & Application Engineer', phone: '+63 961 483 8836', email: 'cris.tycussolutions@gmail.com', handles: ['Temperature measurement', 'Calibration', 'Repairs'] },
@@ -2333,7 +2343,7 @@ const ROUTE = { heater: 'levi', sensor: 'cris', calib: 'cris', repair: 'cris', p
 const RFQ_TYPES = [
   ['Heater Replacement Package', 'levi'], ['Sensor Swap Package', 'cris'], ['Complete Heat Loop Package', 'levi'],
   ['Custom heater', 'levi'], ['Thermocouple / RTD assembly', 'cris'], ['High-temperature thermocouple', 'cris'], ['Thermowell', 'cris'], ['Temperature transmitter', 'cris'], ['Thermocouple wire', 'cris'],
-  ['Process flow meter', 'levi'], ['Water meter', 'levi'], ['Pressure, flow or level instrument', 'levi'], ['Electrical components', 'levi'], ['Analytical or lab equipment', 'cris'],
+  ['Process flow meter', 'levi'], ['Water meter', 'levi'], ['Pressure, flow or level instrument', 'levi'], ['Electrical components', 'levi'], ['Process valve', 'levi'], ['Analytical or lab equipment', 'cris'],
   ['Calibration / repair service', 'cris'], ['Solar / construction project', 'eds'], ['General inquiry', 'sheryl']];
 const RFQ_ROUTE = Object.fromEntries(RFQ_TYPES);
 const PROVINCES = ['Batangas', 'Laguna', 'Cavite', 'Quezon', 'Rizal', 'Metro Manila', 'Bulacan', 'Pampanga', 'Other Luzon', 'Visayas', 'Mindanao'];
@@ -2394,7 +2404,8 @@ const LINES = [
   { ic: 'flow', alt: 'Electromagnetic flow meter with flanged body and transmitter', n: 'Process flow meters', rfq: 'Process flow meter', d: 'For liquids and gases, selected by fluid, line size and accuracy required.', items: ['Electromagnetic', 'Turbine', 'Positive displacement', 'Ultrasonic', 'Coriolis'] },
   { ic: 'water', alt: 'Brass water meter', n: 'Water meters', rfq: 'Water meter', d: 'For plant, utility and building water supply.', items: ['Consumption monitoring', 'Billing', 'Plant and building supply'] },
   { ic: 'transmitter', alt: 'Pressure transmitter and submersible level probe', n: 'Pressure, flow & level instruments', rfq: 'Pressure, flow or level instrument', d: 'For process monitoring, alarms and pump protection.', items: ['Pressure transmitters', 'Flow switches', 'Level switches'] },
-  { ic: 'electrical', alt: 'Temperature controller, relays, contactor and circuit breakers', n: 'Electrical components', rfq: 'Electrical components', d: 'For control panels and motor circuits.', items: ['Relays', 'Contactors', 'Circuit breakers', 'Fuses', 'Motor starters'] },
+  { ic: 'electrical', alt: 'Temperature controller, relays, contactor and circuit breakers', n: 'Electrical components', rfq: 'Electrical components', d: 'For control panels and motor circuits.', items: ['Contactors', 'Overload relays', 'Circuit breakers', 'Fuses', 'Motor starters', 'Control relays', 'Pilot devices'] },
+  { ic: 'valves', alt: 'Globe control valve, actuated ball valve, temperature regulator, safety valve and breather valve', n: 'Process valves', rfq: 'Process valve', d: 'Control, safety and tank protection valves, sized and rated for your line.', items: ['Globe control valves', 'Pressure and temperature regulators', 'Safety valves', 'Breather valves', 'Fusible link valves'] },
   { ic: 'lab', alt: 'Benchtop pH meter, analytical balance and beakers', n: 'Analytical & laboratory', rfq: 'Analytical or lab equipment', d: 'For process, water and quality control testing.', items: ['Analytical instruments', 'General laboratory equipment'] }
 ];
 /* thermocouple / RTD reference (IEC 60584 / IEC 60751) */
@@ -3080,7 +3091,7 @@ const INTERESTS = ['Industrial heaters', 'Temperature sensors', 'Process instrum
 TOOLS.profile = {
   eye: 'Free download', title: 'TYCUS company profile', sub: 'Our heaters, temperature sensors, brands, industries and quality standards in one 15-page PDF.',
   open(root) {
-    root.innerHTML = `<div class="card pf-what"><ul class="ticks"><li>Full heater range with typical uses</li><li>Thermocouple types and temperature ranges</li><li>Manufacturing, testing and compliance standards</li><li>The 17 brands we supply and the industries we serve</li></ul></div>
+    root.innerHTML = `<div class="card pf-what"><ul class="ticks"><li>Full heater range with typical uses</li><li>Thermocouple types and temperature ranges</li><li>Manufacturing, testing and compliance standards</li><li>Process valves, flow, pressure and electrical products</li><li>The 18 brands we supply and the industries we serve</li></ul></div>
     <div class="card"><h3>Where should we send updates?</h3>${contactHTML('pf', { coReq: true, province: false, pref: false, phoneOpt: true })}
       <div class="f"><label for="pfWhy">What are you looking for?</label><select class="inp" id="pfWhy">${INTERESTS.map(x => `<option>${esc(x)}</option>`).join('')}</select></div></div>${errLine('pfErr')}
     <div class="actions"><span class="note">The download starts right away. We won't share your details.</span><button class="btn btn-amber" type="button" id="pfGo">Get the profile<svg><use href="#i-download"/></svg></button></div>`;
@@ -3090,7 +3101,7 @@ TOOLS.profile = {
       const lead = baseLead('profile', c, { fit: why.startsWith('Just') ? 'nurture' : 'good', headline: 'Profile', headlineSub: why, contact: 'Email', facts: ['Downloaded company profile', why] });
       e.target.disabled = true; e.target.textContent = 'Preparing…';
       await submitLead(lead, []);
-      root.innerHTML = `<div class="card"><div class="done-hd"><span class="ok-ic">${icon('i-check')}</span><div><h3>Your download is ready</h3><p class="note" style="margin-top:4px">TYCUS company profile · PDF · 7 MB</p></div></div>
+      root.innerHTML = `<div class="card"><div class="done-hd"><span class="ok-ic">${icon('i-check')}</span><div><h3>Your download is ready</h3><p class="note" style="margin-top:4px">TYCUS company profile · PDF · 16 pages · 5 MB</p></div></div>
         <a class="btn btn-amber btn-lg pf-dl" href="${PROFILE_PDF}" download="TYCUS-Company-Profile.pdf" target="_blank" rel="noopener" data-track="profile_download">Download the PDF<svg><use href="#i-download"/></svg></a>
         <p>Want a price for something specific? <button class="linkbtn" type="button" data-rfq="General inquiry" data-tsh-close>Send us your requirements</button>.</p></div>${closeRow()}`;
       top();
