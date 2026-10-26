@@ -1502,6 +1502,19 @@ header.site{background:var(--surface)}
 @media (max-width:400px){.hero .eyebrow{font-size:9.5px;letter-spacing:.06em}}
 @media (max-width:760px) and (max-height:700px) and (max-aspect-ratio:1/1){.hero-photo .hero-bg{aspect-ratio:16/10;object-position:50% 45%}}
 .hero-pic{display:contents}
+/* ===== every photo shown whole: no cropped products or people ===== */
+/* product photos (light studio backgrounds): fit inside their frame on a matching grey */
+.pline-img,.htype-vis{background:#E9EAEC}
+.pline-img img,.htype-vis img,.pkg-img img{object-fit:contain!important}
+.pline-more .pline-img{background:#2B3135}
+/* people photos keep their natural portrait shape */
+.team-photo{min-height:0!important}
+.team-photo img{position:static!important;height:auto!important;aspect-ratio:3/4!important;object-fit:cover}
+.cc-photos .ph{aspect-ratio:3/4!important}
+@media (min-width:901px){.cc-photos{flex:none!important;grid-template-rows:none!important;min-height:0!important}.rfq{align-items:start!important}.cc-photos{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px}}
+/* parts photo: full panel visible on phones and tablets */
+@media (max-width:900px){#parts .nameplate{aspect-ratio:auto!important;min-height:0!important}#parts .lm-vis img{aspect-ratio:1400/1614!important;height:auto!important;position:static!important}}
+@media (min-width:901px){.help-card{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)!important}#parts .nameplate{aspect-ratio:1400/1614!important;min-height:0!important;height:auto!important}}
 /* instruments: six product tiles, then "Can't find a model?" as a full-width banner */
 @media (min-width:561px){.pline-more{grid-column:1/-1}}
 @media (min-width:601px){
