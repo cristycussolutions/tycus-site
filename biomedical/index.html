@@ -483,18 +483,37 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px;font-size:15px}
 .ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:30px}
 @media (max-width:900px){.ft{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.ft{grid-template-columns:1fr}}
 .ft img{height:40px;width:auto;margin-bottom:14px}
 .ft p{margin-bottom:10px;line-height:1.55}
 .ft h4{font:600 16px var(--ff-d);color:var(--teal);margin:4px 0 10px}
 .ft nav,.ft .ct{display:grid;gap:8px;align-content:start}
 .ft a{color:var(--on-deep);text-decoration:none}
 .ft a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.ft .ct a,.ft .ct span{display:inline-flex;align-items:flex-start;gap:9px;line-height:1.45}
+.ft .ct svg{width:16px;height:16px;color:var(--teal);flex:none;margin-top:3px}
+@media (max-width:560px){
+  footer.site{padding-top:40px;font-size:14px}
+  .ft{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
+  .ft>div:first-child,.ft .ct,.ft-fine{grid-column:1/-1}
+  .ft img{height:34px;margin-bottom:10px}
+  .ft>div:first-child p{font-size:13.5px;line-height:1.5;margin-bottom:6px}
+  .ft h4{font-size:15px;margin:0 0 4px}
+  .ft nav{gap:0}
+  .ft nav a{display:inline-flex;align-items:center;min-height:36px;font-size:14px;line-height:1.3}
+  .ft .ct{gap:0}
+  .ft .ct a{min-height:36px;align-items:center}
+  .ft .ct a svg{margin-top:0}
+  .ft .ct span{padding-top:8px}
+  .ft-fine{font-size:12.5px;margin-top:4px}
+}
 .ft-fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.16);padding-top:18px;margin-top:10px;font-size:13px;line-height:1.55;display:grid;gap:6px}
 .strip{background:var(--teal);color:var(--teal-ink);text-align:center;font:600 15px var(--ff-d);letter-spacing:.03em;padding:11px var(--gut)}
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;gap:8px;align-items:center;background:var(--surface);border-top:1px solid var(--line);padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));box-shadow:0 -6px 18px rgba(0,0,0,.08)}
-.sticky .btn{flex:1;min-height:46px;padding:10px 12px;font-size:15px}
+.sticky .btn{flex:1 1 0;min-width:0;min-height:46px;padding:10px 10px;font-size:15px;white-space:nowrap}
+.sticky .btn-deep{flex:0 0 auto;padding-inline:16px}
+@media (max-width:359px){.sticky .btn svg{display:none}.sticky .btn{font-size:14px}}
 @media (max-width:760px){.sticky.on{display:flex}}
+@media (max-width:760px){footer.site{padding-bottom:112px}}
 
 /* ---------- motion off ---------- */
 @media (prefers-reduced-motion:reduce){
@@ -516,7 +535,9 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 3.5h3.5l1.5 4.5-2.2 1.4a11 11 0 006.3 6.3l1.4-2.2 4.5 1.5V19a2 2 0 01-2 2A16 16 0 013 5.5a2 2 0 012-2z"/></symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5c4.9 0 8.5 3.2 8.5 7.4s-3.6 7.4-8.5 7.4c-.9 0-1.8-.1-2.6-.3L5 20l.9-3.6C4.4 15 3.5 13.1 3.5 10.9 3.5 6.7 7.1 3.5 12 3.5z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 5.5h17v13h-17z"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s-6.5-5.8-6.5-10.5a6.5 6.5 0 0113 0C18.5 15.2 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.3"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5c4.9 0 8.5 3.2 8.5 7.4s-3.6 7.4-8.5 7.4c-.9 0-1.8-.1-2.6-.3L5 20l.9-3.6C4.4 15 3.5 13.1 3.5 10.9 3.5 6.7 7.1 3.5 12 3.5z"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
@@ -1086,6 +1107,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
 </section>
 </main>
 
+<div class="strip">Dialysis Water &amp; Machine Care · Physical Therapy Equipment</div>
 <footer class="site">
   <div class="wrap ft">
     <div>
@@ -1111,11 +1133,11 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     </nav>
     <div class="ct">
       <h4>Contact</h4>
-      <a href="tel:+639681470710" data-track="call">+63 968 147 0710</a>
-      <a href="tel:+63433329080" data-track="call">(043) 332 9080</a>
-      <a href="viber://chat?number=%2B639681470710" data-track="viber">Viber</a>
-      <a href="mailto:sales.tycus@gmail.com" data-track="email">sales.tycus@gmail.com</a>
-      <span>Lot 1 Block 22 corner Saint Joseph Street, Mediatrix Ville, Lanatan 4213, Balayan, Batangas</span>
+      <a href="tel:+639681470710" data-track="call"><svg aria-hidden="true"><use href="#i-phone"/></svg>+63 968 147 0710</a>
+      <a href="tel:+63433329080" data-track="call"><svg aria-hidden="true"><use href="#i-phone"/></svg>(043) 332 9080</a>
+      <a href="viber://chat?number=%2B639681470710" data-track="viber"><svg aria-hidden="true"><use href="#i-chat"/></svg>Viber</a>
+      <a href="mailto:sales.tycus@gmail.com" data-track="email"><svg aria-hidden="true"><use href="#i-mail"/></svg>sales.tycus@gmail.com</a>
+      <span><svg aria-hidden="true"><use href="#i-pin"/></svg>Lot 1 Block 22 corner Saint Joseph Street, Mediatrix Ville, Lanatan 4213, Balayan, Batangas</span>
     </div>
     <div class="ft-fine">
       <span>© 2026 TYCUS Solutions · tycussolutions.com</span>
@@ -1123,7 +1145,6 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     </div>
   </div>
 </footer>
-<div class="strip">Dialysis Water &amp; Machine Care · Physical Therapy Equipment</div>
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <a class="btn btn-line" href="tel:+639681470710" tabindex="-1" data-track="call"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
