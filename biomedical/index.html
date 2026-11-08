@@ -153,6 +153,16 @@ nav.main a:hover{color:var(--ink);background:var(--sunk)}
 .meter .bar s{position:absolute;top:-3px;bottom:-3px;width:2px;background:#E2B466}
 .meter small{display:block;font-size:12px;color:var(--on-deep2);margin-top:3px}
 .go .meter .bar i{transform:none}
+.targets .meter+.meter{border-top:1px solid rgba(255,255,255,.1);padding-top:9px}
+.targets .meter .row b{color:var(--teal);font-weight:600;text-align:right}
+.lab-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:20px}
+.lab-split>div{background:var(--sunk);border-top:3px solid var(--green);padding:18px 22px}
+.lab-split>div.lab{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--sage)}
+.lab-split h4{font:600 19px var(--ff-d);margin:0 0 6px;color:var(--ink)}
+.lab-split .ticks li{border-bottom-color:var(--rule)}
+.lab-split .ticks li svg{flex:none;width:18px;height:18px;color:var(--green);margin-top:2px}
+.lab-split .fine{margin:10px 0 0}
+@media (max-width:760px){.lab-split{grid-template-columns:1fr}}
 @media (max-width:1099px){
   .hero{display:flex;flex-direction:column;background:var(--deep)}
   .hero::before{display:none}
@@ -600,11 +610,12 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     </div>
     <div class="hero-vis">
       <div class="drop" aria-hidden="true"><svg viewBox="0 0 100 142"><path d="M50 0 C50 0 0 62 0 92 A50 50 0 0 0 100 92 C100 62 50 0 50 0 Z" fill="#2BBFA4"/><path d="M28 98 Q30 114 44 120" fill="none" stroke="#E9FBF6" stroke-width="6" stroke-linecap="round" opacity=".85"/></svg></div>
-      <aside class="targets" id="targets" aria-label="Water quality targets we maintain">
-        <h2>What we keep you under <span>Targets</span></h2>
-        <div class="meter"><div class="row"><span>Bacteria</span><b>&lt; 50 CFU/mL</b></div><div class="bar"><i style="--w:25%"></i><s style="left:100%;margin-left:-2px"></s></div><small>DOH limit is 200. We aim for a quarter of it.</small></div>
-        <div class="meter"><div class="row"><span>Endotoxin</span><b>&lt; 0.125 EU/mL</b></div><div class="bar"><i style="--w:50%"></i><s style="left:100%;margin-left:-2px"></s></div><small>Half the ISO 23500-3 limit of 0.25.</small></div>
-        <div class="meter"><div class="row"><span>Chlorine after carbon</span><b>≤ 0.1 mg/L</b></div><div class="bar"><i style="--w:20%"></i><s style="left:100%;margin-left:-2px"></s></div><small>Checked at the worst-case point, every visit.</small></div>
+      <aside class="targets" id="targets" aria-label="What we check at every visit">
+        <h2>Checked at every visit <span>Monthly PM</span></h2>
+        <div class="meter"><div class="row"><span>Chlorine after carbon</span><b>vs 0.1 mg/L limit</b></div><small>Measured at the worst-case point.</small></div>
+        <div class="meter"><div class="row"><span>Softener hardness</span><b>Logged</b></div><small>Caught before it reaches the membranes.</small></div>
+        <div class="meter"><div class="row"><span>Product water conductivity</span><b>vs reference meter</b></div><small>Trended with pressures, flows and rejection.</small></div>
+        <div class="meter"><div class="row"><span>Water cultures</span><b>Your accredited lab</b></div><small>We plan PM around its monthly visit.</small></div>
       </aside>
     </div>
   </div>
@@ -617,7 +628,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <div class="cred" data-reveal><b>Instrumentation &amp; control engineers</b><span>One team services the RO system and the machines it feeds.</span></div>
     <div class="cred" data-reveal data-d="1"><b>Traceable calibration</b><span>ISO/IEC 17025 certificates through our accredited partner lab.</span></div>
     <div class="cred" data-reveal data-d="2"><b>PCAB License No. 61502</b><span>For new RO systems, expansions and replacements.</span></div>
-    <div class="cred" data-reveal data-d="3"><b>PhilGEPS-registered</b><span>Formal quotes and supplier documents for government hospitals.</span></div>
+    <div class="cred" data-reveal data-d="3"><b>Biomedical NC II technicians</b><span>TESDA Biomedical Equipment Servicing NC II holders.</span></div>
   </div>
 </section>
 
@@ -701,7 +712,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Monthly PM on all 8 treatment stages, planned around your lab's visit</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Toray and SWS machine PM at manufacturer intervals, every alarm tested</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Four signed records after every visit, ready for the Medical Director</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bacteria trended against a 50 CFU/mL target, not the 200 limit</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Your laboratory&#39;s culture results filed alongside our readings</li>
           </ul>
           <div class="g"><svg aria-hidden="true"><use href="#i-shield"/></svg><p><b>Records guarantee.</b> A signed report, trend log and disinfection record after every visit. If one is missing, that visit is free.</p></div>
           <div class="go"><button class="btn btn-deep" type="button" data-need="scheduled" data-msg="Scheduled Care&#10;Number of dialysis stations: &#10;RO system (brand, portable or central): &#10;HD machines (Toray / SWS models and quantity): " data-track="pkg_scheduled">Get a Scheduled Care quote<svg aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="who">Handled by our biomedical team</span></div>
@@ -731,7 +742,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
           <p class="pitch">A turnkey RO system sized to your stations, ready for your DOH license application.</p>
           <span class="lbl">What you get</span>
           <ul>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Raw water analysis and a room survey before we size anything</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>On-site feed-water checks, your laboratory&#39;s raw-water results and a room survey before we size anything</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>The full DOH treatment train, plus post-RO UV in every design</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Installation by a PCAB-licensed contractor, with sample ports fitted</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Staff training, drawings, manuals and a monthly PM schedule</li>
@@ -757,8 +768,8 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     </div>
     <div class="grid3">
       <div class="topline" data-reveal><h3>Administrators &amp; procurement</h3><p class="concern">Cost overruns, audit findings, too many vendors.</p><p class="gets">One contract covers maintenance, calibration, reports and scheduled parts, so the water budget holds no surprises.</p></div>
-      <div class="topline" data-reveal data-d="1"><h3>Nephrologists &amp; head nurses</h3><p class="concern">Pyrogenic reactions, infections, failed cultures, unreliable alarms.</p><p class="gets">Culture results kept well below the limit, and every machine alarm tested at each visit.</p></div>
-      <div class="topline" data-reveal data-d="2"><h3>Dialysis center owners</h3><p class="concern">Lost sessions, LTO renewal, reputation.</p><p class="gets">A failed water test can close a unit for days. We keep the system and its paperwork ready so that does not happen.</p></div>
+      <div class="topline" data-reveal data-d="1"><h3>Nephrologists &amp; head nurses</h3><p class="concern">Pyrogenic reactions, infections, failed cultures, unreliable alarms.</p><p class="gets">Every treatment stage serviced and logged monthly, and every machine alarm tested at each visit.</p></div>
+      <div class="topline" data-reveal data-d="2"><h3>Dialysis center owners</h3><p class="concern">Lost sessions, LTO renewal, reputation.</p><p class="gets">A failed water test can close a unit for days. Regular PM and complete paperwork lower that risk.</p></div>
     </div>
 
     <div class="sub-wrap">
@@ -780,7 +791,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
           <p>Inspectors ask for the maintenance file, and DOH expects the Medical Director to review and initial water test results. After every visit you receive four records, ready for that review:</p>
           <ul class="sq-list">
             <li><b>Signed service report:</b> readings, parts replaced and next actions, on one page</li>
-            <li><b>Trend log:</b> rejection, conductivity and pressures over time, so drift shows before a culture fails</li>
+            <li><b>Trend log:</b> rejection, conductivity and pressures over time, so drift can show before a culture fails</li>
             <li><b>Disinfection record:</b> chemical used, contact time and a negative residual check after rinse</li>
             <li><b>Parts traceability:</b> part and lot numbers for membranes, cartridges and media</li>
           </ul>
@@ -823,7 +834,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <div class="s-head" data-reveal>
       <p class="kicker"><i aria-hidden="true"></i>1.4 · Water standards</p>
       <h2 id="stTitle">Engineered to the stricter standard</h2>
-      <p class="lede">We maintain the whole water path, from raw-water pretreatment to the dialysis machine, to ISO 23500-3 action levels, which sit well inside the DOH licensing limits.</p>
+      <p class="lede">We maintain the whole water path, from raw-water pretreatment to the dialysis machine, so it stays in the condition your laboratory&#39;s water tests depend on.</p>
     </div>
 
     <h3 class="sub">The water path we look after</h3>
@@ -856,28 +867,34 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <p class="scroll-hint">Swipe sideways to see the whole drawing.</p>
     <div class="fig-note"><span><b>S1–S3</b> DOH monthly sampling points: raw water, product water after RO, point of use.</span><span>All 8 treatment stages, plus the HD machines they feed, are serviced and logged at every monthly visit.</span></div>
 
-    <h3 class="sub" style="margin-top:48px">Where we keep your bacteria counts</h3>
-    <div class="fig-panel" style="padding:14px 18px 8px" data-reveal>
-      <svg viewBox="0 0 666 96" role="img" aria-label="Bacteria count scale from 0 to 220 CFU per mL: TYCUS target below 50, ISO action level 50, ISO 23500-3 maximum 100, DOH licensing limit 200">
-        <g class="scale-bar"><rect x="0" y="28" width="145.5" height="18" fill="#0B3B2E"/><rect x="145.5" y="28" width="145.5" height="18" fill="#7FB298"/><rect x="291" y="28" width="291" height="18" fill="#D5E3DB"/><rect x="582" y="28" width="58" height="18" fill="#E2B466"/></g>
-        <text x="8" y="41" font-size="11" font-weight="700" fill="#fff">TYCUS target</text><text x="611" y="41" font-size="10.5" font-weight="700" fill="#4A3510" text-anchor="middle">fails</text>
-        <g stroke="#1D2422" stroke-width="1"><path d="M0 46 V58 M145.5 46 V58 M291 46 V58 M436.5 46 V58 M582 46 V58"/></g>
-        <g font-size="11.5" fill="#1D2422" text-anchor="middle"><text x="4" y="72">0</text><text x="145.5" y="72">50</text><text x="291" y="72">100</text><text x="436.5" y="72">150</text><text x="582" y="72">200</text></g>
-        <text x="640" y="90" font-size="11" fill="#4B5651" text-anchor="end">Heterotrophic plate count, CFU/mL</text>
-        <g stroke="#1D2422" stroke-width="1"><path d="M145.5 16 V28 M291 16 V28 M582 16 V28"/></g>
-        <g font-size="11.5" fill="#1D2422" text-anchor="middle"><text x="145.5" y="11">ISO action level</text><text x="291" y="11">ISO 23500-3 maximum</text><text x="582" y="11" font-weight="600">DOH licensing limit</text></g>
-      </svg>
-    </div>
-    <div class="figs">
-      <div class="topline" data-reveal><div class="v">&lt;<span data-count="50">50</span><span class="u">CFU/mL</span></div><p>Bacteria target for product and point-of-use water, a quarter of the DOH limit.</p></div>
-      <div class="topline" data-reveal data-d="1"><div class="v">&lt;<span data-count="0.125" data-dec="3">0.125</span><span class="u">EU/mL</span></div><p>Endotoxin action level we maintain to, though the DOH order sets none.</p></div>
-      <div class="topline" data-reveal data-d="2"><div class="v"><span data-count="8">8</span><span class="u">stages</span></div><p>Treatment stages serviced and logged every month, filters to loop.</p></div>
+    <h3 class="sub" style="margin-top:48px">What we check, and what your laboratory tests</h3>
+    <div class="lab-split">
+      <div data-reveal>
+        <h4>TYCUS on site, every monthly PM</h4>
+        <ul class="ticks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Total chlorine after carbon, against the 0.1 mg/L limit</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hardness after the softener</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Product water conductivity / TDS, against a reference meter</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pressures, flows, rejection and recovery</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Disinfectant residual after rinse</li>
+        </ul>
+      </div>
+      <div class="lab" data-reveal data-d="1">
+        <h4>Your DOH-accredited laboratory</h4>
+        <ul class="ticks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bacteria (heterotrophic plate count)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Fecal coliform</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Endotoxin</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Chemical contaminants</li>
+        </ul>
+        <p class="fine">TYCUS does not run a water analysis laboratory. We schedule PM around your laboratory&#39;s visit and act on its results.</p>
+      </div>
     </div>
 
     <h3 class="sub" style="margin-top:60px">Water quality limits, side by side</h3>
     <div class="tbl-wrap" data-reveal>
       <table class="t">
-        <thead><tr><th scope="col" style="width:17%">Parameter</th><th scope="col" style="width:23%">DOH licensing limit<small>AO 2013-0003</small></th><th scope="col" class="hl" style="width:23%">ISO 23500-3<small>limit / action we maintain to</small></th><th scope="col">Who tests, how often</th></tr></thead>
+        <thead><tr><th scope="col" style="width:17%">Parameter</th><th scope="col" style="width:23%">DOH licensing limit<small>AO 2013-0003</small></th><th scope="col" class="hl" style="width:23%">ISO 23500-3<small>limit / action level</small></th><th scope="col">Who tests, how often</th></tr></thead>
         <tbody>
           <tr><td>Bacteria (HPC / TVC)</td><td>&lt; 200 CFU/mL</td><td class="hl">&lt; 100 / 50 CFU/mL</td><td>Accredited laboratory, monthly at raw, product and point of use</td></tr>
           <tr><td>Fecal coliform</td><td>&lt; 1.1 MPN/100 mL</td><td class="hl">Covered by bacteria count</td><td>Accredited laboratory, monthly</td></tr>
@@ -890,13 +907,13 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <p class="fine">Sources: DOH Administrative Order 2013-0003; DOH Administrative Order 2006-0037; ISO 23500-3:2024; ISO limits as summarized in Clin J Am Soc Nephrol 2015;10(6):1061–1071.</p>
 
     <h3 class="sub" style="margin-top:60px">When a water test fails</h3>
-    <p style="max-width:780px">Under DOH AO 2013-0003, a unit whose result exceeds the limit stops operating and notifies patients until a repeat test complies. Our procedure gets you back to a passing result, on record.</p>
+    <p style="max-width:780px">Under DOH AO 2013-0003, a unit whose result exceeds the limit stops operating and notifies patients until a repeat test complies. Our procedure works with your laboratory toward a passing retest, on record.</p>
     <ol class="flow">
       <li data-reveal><span class="k">1</span><b>Lab alert</b><p>Result over the limit; the unit pauses per the DOH rule.</p></li>
       <li data-reveal data-d="1"><span class="k">2</span><b>TYCUS on site</b><p>Priority call-out through our 24/7 support line.</p></li>
       <li data-reveal data-d="2"><span class="k">3</span><b>Fix the cause</b><p>Clean or replace membranes; disinfect the loop and machine hoses.</p></li>
       <li data-reveal data-d="3"><span class="k">4</span><b>Retest</b><p>Re-sampling coordinated with your accredited laboratory.</p></li>
-      <li data-reveal data-d="3"><span class="k">5</span><b>Reopen</b><p>Passing result; corrective action report filed for DOH.</p></li>
+      <li data-reveal data-d="3"><span class="k">5</span><b>Reopen</b><p>Laboratory confirms a pass; corrective action report for your DOH file.</p></li>
     </ol>
     <p class="note"><b>Who takes the samples.</b> TYCUS does not collect DOH water samples. In NCR and nearby provinces only DOH-accredited laboratory staff may sample, so we schedule PM and disinfection around your laboratory's monthly visit.</p>
   </div>
@@ -919,10 +936,10 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
       <div data-reveal>
         <h3 class="sub"><span class="k">1.6</span>Supply &amp; installation, step by step</h3>
         <ol class="proc">
-          <li><span class="k">1</span><div><b>Survey &amp; raw water analysis</b><p>We test the feed water and measure the room, then size the system to your stations plus planned growth.</p></div></li>
+          <li><span class="k">1</span><div><b>Survey &amp; raw water review</b><p>We check the feed water on site, review your laboratory&#39;s raw-water results and measure the room, then size the system to your stations plus planned growth.</p></div></li>
           <li><span class="k">2</span><div><b>Design to the DOH equipment list</b><p>Pretreatment, RO and storage, post-RO UV, and a loop laid out with no dead legs.</p></div></li>
           <li><span class="k">3</span><div><b>Inspect &amp; install</b><p>Order checked on arrival; power, water and drain connected; sample ports fitted at raw, product and point of use.</p></div></li>
-          <li><span class="k">4</span><div><b>Commission &amp; test</b><p>Self-test and every safety alarm triggered; readings against a calibrated meter; flows measured; disinfection, flush and laboratory tests.</p></div></li>
+          <li><span class="k">4</span><div><b>Commission &amp; test</b><p>Self-test and every safety alarm triggered; readings against a calibrated meter; flows measured; disinfection and flush, then sampling by your accredited laboratory.</p></div></li>
           <li><span class="k">5</span><div><b>Train &amp; hand over</b><p>Test report signed with your team before first patient use; staff trained on daily checks and logbooks; drawings, manuals and PM schedule.</p></div></li>
         </ol>
       </div>
@@ -1016,7 +1033,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <div class="why">
       <div data-reveal><span class="k">1</span><h3>Sourced to spec</h3><p>Options matched to your programs, space and budget.</p></div>
       <div data-reveal data-d="1"><span class="k">2</span><h3>Brand-new units</h3><p>Covered by manufacturer warranty and our warranty policy.</p></div>
-      <div data-reveal data-d="2"><span class="k">3</span><h3>Procurement-ready</h3><p>PhilGEPS-registered, with formal quotes and supplier documents.</p></div>
+      <div data-reveal data-d="2"><span class="k">3</span><h3>Certified technicians</h3><p>Delivered and checked by TESDA Biomedical Equipment Servicing NC II holders.</p></div>
       <div data-reveal data-d="3"><span class="k">4</span><h3>After-sales support</h3><p>Technical support and parts availability after delivery.</p></div>
     </div>
     <div class="btn-row">
@@ -1035,7 +1052,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
       <details><summary>Our technician already handles the RO.</summary><p>Good. We support them with parts, trend analysis and a monthly report from a licensed service company, which is what DOH asks to see.</p></details>
       <details><summary>We already have a supplier.</summary><p>Keep them for comparison. Ask both of us for last quarter's trend logs and see which would have warned you before a culture failed.</p></details>
       <details><summary>Is monthly PM worth the cost?</summary><p>Compare it with the sessions lost if the unit stops for a retest. The calculator near the top of this page does the sum for your unit.</p></details>
-      <details><summary>Our water tests are passing.</summary><p>Under 200 CFU/mL is the license line. We aim to keep you under 50, so one bad month does not turn into a shutdown.</p></details>
+      <details><summary>Our water tests are passing.</summary><p>Under 200 CFU/mL is the license line. Our trend logs flag falling performance early, so a bad month is less likely to turn into a shutdown.</p></details>
       <details><summary>Can we just call you when something breaks?</summary><p>You can, but by then patients are being rescheduled. A monthly visit finds a fouling membrane or an exhausted carbon bed weeks earlier.</p></details>
       <details><summary>Who collects the DOH water samples?</summary><p>An accredited laboratory. In NCR and nearby provinces only DOH-accredited laboratory staff may sample, so we plan our visits around theirs.</p></details>
     </div>
@@ -1113,7 +1130,7 @@ footer.site{background:var(--deep);color:var(--on-deep2);padding-block:52px 28px
     <div>
       <img src="../assets/img/tycus-logo-white.png" alt="TYCUS Solutions" width="96" height="38">
       <p>TYCUS Enterprises Corporation, operating as TYCUS Solutions. Dialysis water and machine care, and physical therapy equipment supply, for hospitals and clinics across the Philippines.</p>
-      <p>PCAB Licensed Contractor · Regular License No. 61502 · Specialty Contractor · PhilGEPS-registered</p>
+      <p>PCAB Licensed Contractor · Regular License No. 61502 · Specialty Contractor · Biomedical NC II holder technicians</p>
     </div>
     <nav aria-label="Biomedical and PT">
       <h4>Biomedical &amp; PT</h4>
